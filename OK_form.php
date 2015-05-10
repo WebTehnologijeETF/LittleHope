@@ -9,14 +9,16 @@
 		<p><?php print "Web:" .$web; ?></p>
 		<p><?php print "Message:" .$text; ?></p>
 		<h1>Da li ste sigurni da želite poslati ove podatke?</h1>
-
+		
+		<form class="forma" action="Posalji_mail.php" method="get" ><!--onsubmit="Validacija_forme(); return false;"--> 
 		<p class="submit"><input type="submit" value="Sigurna sam" /></p>
+		</form>
 		<p><br><br><br></p>
 		</div>
 		<h1>Ako ste pogrešno popunili formu, možete ispod prepraviti unesene podatke</h1>
 		
-		<form class="forma" action="Posalji_mail.php" method="get" ><!--onsubmit="Validacija_forme(); return false;"--> 
-			
+		
+			<form class="forma" action="Contact_form.php" method="get" ><!--onsubmit="Validacija_forme(); return false;"--> 
 			<p class="name"><input type="text" name="name" id="name" placeholder="Imenko Prezimenko" value="<?php print $_REQUEST['name']; ?>"/>
 				<label for="name">Name</label>
 

@@ -1,10 +1,9 @@
 <?php
-// The message
-$message = "Line 1\r\nLine 2\r\nLine 3";
-print $message;
-// In case any of our lines are larger than 70 characters, we should use wordwrap()
-//$message = wordwrap($message, 70, "\r\n");
 
-// Send
+	
+// The message
+$message = "Poruka";
+print $message;
+
 mail('ekusndzij1@etf.unsa.ba', 'My Subject', $message);
 ?>
