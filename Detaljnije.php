@@ -1,6 +1,4 @@
-<div id="Novosti">
 
-				<ul>
 <?php
 
 	echo $_GET['Naslov']."<br><br>";
@@ -11,6 +9,3 @@
 	echo 'OPIS: <br> '.$_GET['Opis']."<br><br>";
 	echo 'DETALJNIJI OPIS: <br> '.$_GET['DetaljnijiOpis']."<br><br>";
 ?>
-	</ul>
-				
-		</div>

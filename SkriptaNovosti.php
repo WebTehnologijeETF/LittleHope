@@ -1,6 +1,5 @@
 <link rel="stylesheet" type="text/css" href="LittleHope_stil.css">
 <?php
-header('Content-Type: text/html; charset=utf-8');
 $prikaz_novosti='';
 
 //sortiranje 
@@ -75,12 +74,12 @@ foreach ($fajlovi as $file)
 						 $Slikax="'" . str_replace( "\r\n", '<br />', $Slika1 )."'";
 						 $Opisx ="'" . str_replace( "\r\n", '<br />', $Opis)."'";
 						 $DetaljnijiOpisx ="'" . str_replace( "\r\n", '<br />', $DetaljnijiOpis )."'";
-
 						
 						
+						//else $DetaljnijiOpis1='<a class="Opsirnije" onClick="UcitajDetaljnije()" >Opsirnije...</a>';
 						if($DetaljnijiOpis=='')$DetaljnijiOpis1='';
-						else $DetaljnijiOpis1='<a class="Opsirnije" onClick="UcitajDetaljnije('.$Datumx.','.$Autorx.','.$Naslovx.','.$Slikax.','.$Opisx.','.$DetaljnijiOpisx.'); return;" >Opsirnije...</a>';
-						
+						else $DetaljnijiOpis1='<a class="Opsirnije" onClick="UcitajDetaljnije('.$Datumx.','.$Autorx.','.$Naslovx.','.$Naslovx.','.Opisx.','.$DetaljnijiOpisx.')" >Opsirnije...</a>';
+						//echo $DetaljnijiOpis1;
 						break;
 					}
 				$brojac=$brojac + 1;

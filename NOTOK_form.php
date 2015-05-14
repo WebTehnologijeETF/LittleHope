@@ -1,7 +1,7 @@
 <div id="formica">
 				
 		<h1>Required informations</h1>
-		<form class="forma"  action="Contact_form.php" method="get" ><!--onsubmit="Validacija_forme(); return false;"--> 
+		<form class="forma"  action="Contact_form.php" onsubmit="Validacija_forme()" method="get" ><!--"--> 
 			
 			<p class="name"><input type="text" name="name" id="name" placeholder="Imenko Prezimenko"  value="<?php print $_REQUEST['name']; ?>"/>
 				<label for="name">Name</label> 

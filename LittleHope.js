@@ -437,6 +437,7 @@ function MostRecent() {
 }
 function UcitajDetaljnije(Datum,Autor,Naslov,Slika,Opis,DetaljnijiOpis) {
 	var ajax;
+	alert("bla");
 	if (window.XMLHttpRequest)
 	  {//code for IE7+, Firefox, Chrome, Opera, Safari
 	  ajax=new XMLHttpRequest();

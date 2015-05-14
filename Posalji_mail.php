@@ -1,3 +1,5 @@
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
 <?php
 /*<?php include 'OK_form.php'?>*/
 ini_set("SMTP", "webmail.etf.unsa.ba");
@@ -12,11 +14,11 @@ $message = "Name:".$_GET['name']." \r\n Tel: ".$_GET['tel']." \r\n Web: ".$_GET[
 
 if(mail($to,$subject,$message,$headers))
 {
-	$prikaz_forme= "Zahvaljujemo se sto ste nas kontaktirali!";
+	echo "Zahvaljujemo se sto ste nas kontaktirali!";
 }
 else
 {
-	$prikaz_forme= " Mail nije poslan! ";
+	echo " Mail nije poslan! ";
 }
 
 ?>
