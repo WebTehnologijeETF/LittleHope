@@ -1,7 +1,7 @@
 <div id="formica">
 		<h1>Provjerite da li ste ispravno popunili kontakt formu</h1>
 		<div id="Podaci">
-		<p><?php print "Name:" .$web; ?></p> 
+		<p><?php print "Name:" .$_GET['name']; ?></p> 
 		<p><?php print "Township:" .$_GET['township']; ?></p>
 		<p><?php print "Location:" .$_GET['location']; ?></p>
 		<p><?php print "Email:" .$email; ?></p>
@@ -11,6 +11,7 @@
 		<h1>Da li ste sigurni da želite poslati ove podatke?</h1>
 		
 		<form class="forma" action="Posalji_mail.php" method="get" ><!--onsubmit="Validacija_forme(); return false;"--> 
+		<?php $konj=$_REQUEST['name']; ?>
 		<p class="submit"><input type="submit" value="Sigurna sam" /></p>
 		</form>
 		<p><br><br><br></p>

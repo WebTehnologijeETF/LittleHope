@@ -27,6 +27,7 @@ foreach (glob("Novosti/*.txt") as $file)
 						$Slika='';
 						if(trim($buffer)=='')$Slika="";
 						else $Slika ='<img  src='.$buffer.'alt="nesto">';
+						$Slika1=trim($buffer);
 					}
 					if($brojac>3 and trim($buffer) != "--")
 					{
@@ -41,10 +42,18 @@ foreach (glob("Novosti/*.txt") as $file)
 							$DetaljnijiOpis=$DetaljnijiOpis.$buffer;
 						}
 						$DdetaljnijiOpis1='';
-						if($DetaljnijiOpis=='')$DetaljnijiOpis1='';
-						else $DetaljnijiOpis1='<a class="Opsirnije" onClick="UcitajDetaljnije()" >Opsirnije...</a>';
-						
+						 $Naslovx ="'" . str_replace( "\r\n", '<br />', $Naslov )."'";
+						 $Datumx ="'" . str_replace( "\r\n", '<br />', $Datum )."'";
+						 $Autorx ="'" . str_replace( "\r\n", '<br />', $Autor)."'";
+						 $Slikax="'" . str_replace( "\r\n", '<br />', $Slika1 )."'";
+						 $Opisx ="'" . str_replace( "\r\n", '<br />', $Opis)."'";
+						 $DetaljnijiOpisx ="'" . str_replace( "\r\n", '<br />', $DetaljnijiOpis )."'";
 
+						
+						//else $DetaljnijiOpis1='<a class="Opsirnije" onClick="UcitajDetaljnije()" >Opsirnije...</a>';
+						if($DetaljnijiOpis=='')$DetaljnijiOpis1='';
+						else $DetaljnijiOpis1='<a class="Opsirnije" onClick="UcitajDetaljnije('.$Datumx.','.$Autorx.','.$Naslovx.','.$Slikax.','.$Opisx.','.$DetaljnijiOpisx.')" >Opsirnije...</a>';
+						//echo $DetaljnijiOpis1;
 						break;
 					}
 				$brojac=$brojac + 1;
@@ -55,10 +64,7 @@ foreach (glob("Novosti/*.txt") as $file)
 								.$Slika. '
 								<br> '.ucfirst( strtolower($Naslov)).'<br></a>
 								<div class="Opis"><br>'. $Opis.'</div>
-								<div class="Autor"><br>'.$Autor.','.$Datum.'</div>'
-								.$DetaljnijiOpis1.
-								'</li>
-						 ';
+								<div class="Autor"><br>'.$Autor.','.$Datum.'</div>'.$DetaljnijiOpis1.'</li>';
 				
 				//echo $prikaz_novosti;
 				/*if (!feof($handle)) {

@@ -435,6 +435,28 @@ function MostRecent() {
 	ajax.open("GET", "MostRecent.html", true);
 	ajax.send();
 }
+function UcitajDetaljnije(Datum,Autor,Naslov,Slika,Opis,DetaljnijiOpis) {
+	var ajax;
+	if (window.XMLHttpRequest)
+	  {//code for IE7+, Firefox, Chrome, Opera, Safari
+	  ajax=new XMLHttpRequest();
+	  } 
+	else
+	  {// code for IE6, IE5
+	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
+	  }	
+	ajax.onreadystatechange = function() {// Anonimna funkcija
+
+		if (ajax.readyState == 4 && ajax.status == 200)
+			document.getElementById("Novosti").innerHTML = ajax.responseText;
+		if (ajax.readyState == 4 && ajax.status == 404)
+			document.getElementById("Novosti").innerHTML = "Greska: nepoznat URL";
+	};
+	var link="Detaljnije.php?Naslov="+Naslov+"&Autor="+Autor+"&Datum="+Datum+"&Slika="+Slika+"&Opis="+Opis+"&DetaljnijiOpis="+DetaljnijiOpis;
+	ajax.open("GET", link , true);
+	ajax.send();
+}
+
 function EducationCreative() {
 	var ajax;
 	if (window.XMLHttpRequest)

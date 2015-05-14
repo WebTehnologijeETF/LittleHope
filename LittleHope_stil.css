@@ -322,7 +322,7 @@ div#okvir{
 	margin-left: 0.5cm;
 
 }
-.a_novosti img{
+.a_novosti img, .slicica img {
 	float: left;
 	margin-left: 0.3cm;
 	margin-top: 0.3cm;
