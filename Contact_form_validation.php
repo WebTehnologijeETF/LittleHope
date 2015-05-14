@@ -47,7 +47,7 @@
         $sex = htmlEntities($_GET['sex'], ENT_QUOTES);
         $lsex=1;
       } 
-*/
+*/    $sex = htmlEntities($_GET['sex'], ENT_QUOTES);
      
 		if($ltext==1  && $lemail==1 && (($lweb==1 && $ltel==0)||($lweb==0 && $ltel==1)||($lweb==1 && $ltel==1)))
 		{

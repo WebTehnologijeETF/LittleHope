@@ -1,7 +1,31 @@
 <link rel="stylesheet" type="text/css" href="LittleHope_stil.css">
 <?php
+header('Content-Type: text/html; charset=utf-8');
 $prikaz_novosti='';
-foreach (glob("Novosti/*.txt") as $file) 
+
+//sortiranje 
+$fajlovi1=glob("Novosti/*.txt");
+$fajlovi=array();
+$datumi=array();
+foreach ($fajlovi1 as $key) {
+	array_push($fajlovi, $key);
+	$handle = fopen($key, "r");
+	if ($handle) 
+			{
+				$buffer = fgets($handle, 1024);
+				$date = date_parse_from_format("d.m.Y. h:m:s", $buffer);
+				$time = mktime($date['hour'], $date['minute'], $date['second'], $date['month'], $date['day'], $date['year']);
+				$time = date('d.m.Y. h:m:s', $time);
+			}
+	fclose($handle);
+	array_push($datumi, $time);
+
+}
+array_multisort($datumi,SORT_DESC,$fajlovi);
+
+//ispis
+
+foreach ($fajlovi as $file) 
 {
 	$handle = fopen($file, "r");
 	if ($handle) 
@@ -13,6 +37,9 @@ foreach (glob("Novosti/*.txt") as $file)
 					if($brojac==0)
 					{
 						$Datum =$buffer;
+						$date = date_parse_from_format("d.m.Y. h:m:s", $buffer);
+						$time = mktime($date['hour'], $date['minute'], $date['second'], $date['month'], $date['day'], $date['year']);
+						$time = date('d.m.Y. h:m:s', $time);
 					}
 					if($brojac==1)
 					{
@@ -50,10 +77,10 @@ foreach (glob("Novosti/*.txt") as $file)
 						 $DetaljnijiOpisx ="'" . str_replace( "\r\n", '<br />', $DetaljnijiOpis )."'";
 
 						
-						//else $DetaljnijiOpis1='<a class="Opsirnije" onClick="UcitajDetaljnije()" >Opsirnije...</a>';
+						
 						if($DetaljnijiOpis=='')$DetaljnijiOpis1='';
-						else $DetaljnijiOpis1='<a class="Opsirnije" onClick="UcitajDetaljnije('.$Datumx.','.$Autorx.','.$Naslovx.','.$Slikax.','.$Opisx.','.$DetaljnijiOpisx.')" >Opsirnije...</a>';
-						//echo $DetaljnijiOpis1;
+						else $DetaljnijiOpis1='<a class="Opsirnije" onClick="UcitajDetaljnije('.$Datumx.','.$Autorx.','.$Naslovx.','.$Slikax.','.$Opisx.','.$DetaljnijiOpisx.'); return;" >Opsirnije...</a>';
+						
 						break;
 					}
 				$brojac=$brojac + 1;
@@ -65,12 +92,6 @@ foreach (glob("Novosti/*.txt") as $file)
 								<br> '.ucfirst( strtolower($Naslov)).'<br></a>
 								<div class="Opis"><br>'. $Opis.'</div>
 								<div class="Autor"><br>'.$Autor.','.$Datum.'</div>'.$DetaljnijiOpis1.'</li>';
-				
-				//echo $prikaz_novosti;
-				/*if (!feof($handle)) {
-				echo "Error: unexpected fgets() fail\n";
-				}*/
-				
 				
 			}fclose($handle);
 }

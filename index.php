@@ -20,7 +20,7 @@
 	</div>
 	
 	<div id="logotip">
-		<a href="index.html">
+		<a href="index.php">
 		<img src="Logo_for_Charity_logo.png" alt="nesto"></a>
 	</div>
 

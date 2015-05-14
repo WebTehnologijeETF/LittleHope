@@ -1,3 +1,4 @@
+ 
 <div id="formica">
 		<h1>Provjerite da li ste ispravno popunili kontakt formu</h1>
 		<div id="Podaci">
@@ -10,8 +11,7 @@
 		<p><?php print "Message:" .$text; ?></p>
 		<h1>Da li ste sigurni da želite poslati ove podatke?</h1>
 		
-		<form class="forma" action="Posalji_mail.php" method="get" ><!--onsubmit="Validacija_forme(); return false;"--> 
-		<?php $konj=$_REQUEST['name']; ?>
+		<form class="forma" action=<?php print "Posalji_mail.php?name=".$_GET['name']."&email=".$email."&tel".$tel."&web".$web."&text".$text; ?> method="get" ><!--onsubmit="Validacija_forme(); return false;"--> 
 		<p class="submit"><input type="submit" value="Sigurna sam" /></p>
 		</form>
 		<p><br><br><br></p>
@@ -38,8 +38,8 @@
 			<p class="web"><input type="text" name="web" id="web" placeholder="www.example.com" value="<?php print $_REQUEST['web']; ?>" />
 				<label for="web">Website</label><img id="web-slika" src="http://icons.iconarchive.com/icons/fatcow/farm-fresh/24/exclamation-icon.png" alt="nesto"></p>		
 
-				<p><input type="radio" name="sex" value="male" checked>Not-Urgent 
-					<input type="radio" name="sex" value="female" >Urgent</p>
+				<p><input type="radio" name="sex" value="male" <?php if(isset($_REQUEST['sex'])&&$_REQUEST['sex']=="male") print "checked"; ?>>Not-Urgent 
+					<input type="radio" name="sex" value="female" <?php if(isset($_REQUEST['sex'])&&$_REQUEST['sex']=="female") print "checked"; ?>>Urgent</p>
 		
 			<p class="text"><textarea id="text" name="text" placeholder="Message for us" ><?php print $_REQUEST['text']; ?></textarea><img id="text-slika" src="http://icons.iconarchive.com/icons/fatcow/farm-fresh/24/exclamation-icon.png" alt="nesto">  <div id="error_text"></div>			
 			<p class="submit"><input type="submit" value="Slanje" /></p>

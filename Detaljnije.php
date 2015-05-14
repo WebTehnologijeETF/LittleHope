@@ -1,4 +1,6 @@
-			
+<div id="Novosti">
+
+				<ul>
 <?php
 
 	echo $_GET['Naslov']."<br><br>";
@@ -8,10 +10,7 @@
 	else echo '<div class="slicica"><img  src='.$_GET['Slika'].' alt="nesto"></div> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>' ;
 	echo 'OPIS: <br> '.$_GET['Opis']."<br><br>";
 	echo 'DETALJNIJI OPIS: <br> '.$_GET['DetaljnijiOpis']."<br><br>";
-	
-
-			
-
-
-
 ?>
+	</ul>
+				
+		</div>

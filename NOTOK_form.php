@@ -23,8 +23,8 @@
 			<p class="web"><input type="text" name="web" id="web" placeholder="www.example.com"  value="<?php print $_REQUEST['web']; ?>"/>
 				<label for="web">Website</label><img id="web-slika" src="http://icons.iconarchive.com/icons/fatcow/farm-fresh/24/exclamation-icon.png" alt="nesto"></p>		
 
-				<p><input type="radio" name="sex" value="male" checked>Not-Urgent 
-					<input type="radio" name="sex" value="female" >Urgent</p>
+				<p><input type="radio" name="sex" value="male" <?php if(isset($_REQUEST['sex'])&&$_REQUEST['sex']=="male") print "checked"; ?> >Not-Urgent 
+					<input type="radio" name="sex" value="female"  <?php if(isset($_REQUEST['sex'])&&$_REQUEST['sex']=="female") print "checked"; ?> >Urgent</p>
 		
 			<p class="text"><textarea id="text" name="text" placeholder="Message for us"><?php print $_GET['text']; ?></textarea><img id="text-slika" src="http://icons.iconarchive.com/icons/fatcow/farm-fresh/24/exclamation-icon.png" alt="nesto">  <div id="error_text"><?php if($ltext==0){ print '<img src="exclamation-icon.png" alt="nesto">'; print  $etext; }?></div>			
 			<p class="submit"><input type="submit" value="Send" /></p>

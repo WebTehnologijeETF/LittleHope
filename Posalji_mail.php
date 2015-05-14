@@ -6,17 +6,17 @@ ini_set("smtp_port", "25");
 
 $to = "ekusundzij1@etf.unsa.ba";
 //$headers="From:".$_GET['email']."\r\n"."Cc:"."iprazina1@etf.unsa.ba"."\r\n"."Replay-to:"."";
-$headers="From:"."ekusndzij1@etf.unsa.ba";
+$headers="From: ekusundzij1@etf.unsa.ba \r\n Cc:"."iprazina1@etf.unsa.ba \r\n"."Replay-to: ".$_GET['email'];
 $subject ="Customer feedback";
-$message = "Poruka";
+$message = "Name:".$_GET['name']." \r\n Tel: ".$_GET['tel']." \r\n Web: ".$_GET['web']." \r\n Poruka: ".$_GET['text'];
 
 if(mail($to,$subject,$message,$headers))
 {
-	echo "Zahvaljujemo se sto ste nas kontaktirali!";
+	$prikaz_forme= "Zahvaljujemo se sto ste nas kontaktirali!";
 }
 else
 {
-	echo "jedan".$email."bla";
+	$prikaz_forme= " Mail nije poslan! ";
 }
 
 ?>

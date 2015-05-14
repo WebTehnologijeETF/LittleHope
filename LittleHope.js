@@ -452,7 +452,7 @@ function UcitajDetaljnije(Datum,Autor,Naslov,Slika,Opis,DetaljnijiOpis) {
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("Novosti").innerHTML = "Greska: nepoznat URL";
 	};
-	var link="Detaljnije.php?Naslov="+Naslov+"&Autor="+Autor+"&Datum="+Datum+"&Slika="+Slika+"&Opis="+Opis+"&DetaljnijiOpis="+DetaljnijiOpis;
+	var link="Detaljnije.php?Naslov="+Naslov+"&Autor="+Autor+"&Datum="+Datum+"&Slika="+Slika+"&Opis="+Opis+"&DetaljnijiOpis="+DetaljnijiOpis+"";
 	ajax.open("GET", link , true);
 	ajax.send();
 }
