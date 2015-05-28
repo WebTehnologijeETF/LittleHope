@@ -16,7 +16,7 @@
 		<a class="Home" href="index.php">Home</a>
 	</div>
 	<div class="Login">
-		<a class="Login" href="#">Login</a>
+		<a class="Login" onClick="LoginForma()">Login</a>
 	</div>
 	
 	<div id="logotip">
@@ -160,7 +160,7 @@
 
 		<div id="Naslov"><p>MOST RECENT</p>
 		<?php
-			 include 'SkriptaNovosti.php'
+			 include 'NovostiBaza.php'
 			 ?>
 			
 		<div id="Novosti">

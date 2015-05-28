@@ -78,7 +78,7 @@ foreach ($fajlovi as $file)
 						
 						//else $DetaljnijiOpis1='<a class="Opsirnije" onClick="UcitajDetaljnije()" >Opsirnije...</a>';
 						if($DetaljnijiOpis=='')$DetaljnijiOpis1='';
-						else $DetaljnijiOpis1='<a class="Opsirnije" onClick="UcitajDetaljnije('.$Datumx.','.$Autorx.','.$Naslovx.','.$Naslovx.','.Opisx.','.$DetaljnijiOpisx.')" >Opsirnije...</a>';
+						else $DetaljnijiOpis1='<a class="Opsirnije" onClick="UcitajDetaljnije('.$Datumx.','.$Autorx.','.$Naslovx.','.$Naslovx.','.$Opisx.','.$DetaljnijiOpisx.')" >Opsirnije...</a>';
 						//echo $DetaljnijiOpis1;
 						break;
 					}

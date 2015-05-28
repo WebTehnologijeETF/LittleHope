@@ -331,10 +331,12 @@ div#okvir{
 	padding: 0.2cm;
 }
 
-.Opis{
 
-}
 .Opsirnije{
+	color: blue;
+float: right;
+}
+#Opsirnije1{
 	color: blue;
 	float: right;
 }
@@ -391,7 +393,9 @@ div#okvir{
 	float: left;
 	width: 820pt;
 	height: 150pt;
+
 }
+
 #Partneri p{
 	color:#996633;
 	font-weight: bold;
@@ -521,6 +525,7 @@ td,th{
 	font-family: Gabriela;
 	font-size: 15pt;
 }
+
 #formica input:hover, #Proizvodi input:hover{
 	border-width: 1px;
 	border-style: solid;
@@ -631,6 +636,5 @@ td,th{
 #Podlista5 li:hover,#Podlista4 li:hover,#Podlista3 li:hover,#Podlista2 li:hover,#Podpodlista1 li:hover, #Podpodlista2 li:hover, #Podpodlista3 li:hover, #Podpodlista4 li:hover, #Podpodlista5 li:hover{
 	text-decoration: underline;
 }
-
 
 

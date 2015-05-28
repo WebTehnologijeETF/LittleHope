@@ -1,0 +1,20 @@
+#odjava{
+	color: blue;
+	float: right;
+}
+#lista{
+	padding-left: 2cm;
+}
+.li{
+	color: blue;	
+}
+#forma{
+	padding: 0.4cm;
+}
+#forma h1{
+	padding: 0.4cm;
+	padding-left: 0cm;
+	color: #996633;
+	font-family: Gabriela;
+	font-size: 15pt;
+}
