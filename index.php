@@ -7,7 +7,7 @@
 	<script src="LittleHope.js"></script>
 	<link rel="stylesheet" type="text/css" href="LittleHope_stil.css">
 </HEAD>
-<BODY onLoad="Funkcija()">
+<BODY id="tijelo" onLoad="Funkcija();Funkcija1();">
 <div id="okvir" >
 	<div class="contact_us">
 		<a class="contact_us" onClick="ContactForm()">Contact us</a>
@@ -53,6 +53,41 @@
 			<div id="naslov1"><p >do</p></div>
 			<div id="naslov2"><p >ONE GOOD DEED</p></div>
 			<div id="naslov3"><p >for someone other than<br>yourself </p></div>
+			<div id='konj'>
+			<?php
+	
+			function funk(){
+				session_start();
+
+				 if (!isset($_SESSION['username'])){?>
+
+
+				 	<div><form    ><!--"onsubmit="--> 
+				            
+				                <label for="name"> </label><input type="text" name="name" id="name1"  placeholder="username"/>
+
+				                <label  for="email"> </label> <input type="text" name="email" id="email1" placeholder="password"/>
+				                <input type="button" value="Prijavi se" onclick="OtvoriKorisnikPanel()"/>
+				                <a onClick="ResetujSifru1()"> Resetuj password </a>
+
+				            </form> 
+				            
+				            <?php
+				 	//funk();
+				 }
+					else{ 
+						
+						print "User: ".$_SESSION['username'];?>
+						<input type="button" value="Odjavi se" onclick="OdjaviSe1()"/></p>
+						 <?php
+						 
+					 }
+
+					}
+					funk();
+			?>
+</div>
+		
 		<div id="meni">
 			<ul>
 				<li class="meni_lista"> <a class="a_meni" onClick="AboutUs()">About us</a></li>
@@ -159,21 +194,23 @@
 		</div>
 
 		<div id="Naslov"><p>MOST RECENT</p>
-		<?php
-			 include 'NovostiBaza.php'
+		<!--<div id="refresh"><?php
+			 //include 'NovostiBaza.php'
 			 ?>
+			</div>-->
 			
 		<div id="Novosti">
-
-				<ul>
+		<div id="refresh">
+				<!--<ul>
 				<?php 
-				print $prikaz_novosti;
+				//print $prikaz_novosti;
 				?>
-				</ul>
-				
-		</div>
-			 
-		</div>
+				</ul>-->
+			</div>
+			
+			</div>
+
+			 </div>
 		</div>
 		
 

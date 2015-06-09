@@ -35,11 +35,11 @@
       $detTekst=$vijest["DetaljnijiTekst"];
        $detTekst = str_replace( "\r\n", '<br />', $detTekst );
       $slika1=$vijest['Slika'];
-
+$id=$vijest["id"];
       if($vijest['DetaljnijiTekst']=='')$DetaljnijiOpis1='';
-      else $DetaljnijiOpis1='<a class="Opsirnije" onClick="UcitajDetaljnije('."'$datum'".','."'$autor'".','."'$naslov'".','."'$slika1'".','."'$tekst1'".','."'$detTekst'".')" >Opsirnije...</a>';
+      else $DetaljnijiOpis1='<a class="Opsirnije" onClick="UcitajDetaljnije('."'$id'".','."'$datum'".','."'$autor'".','."'$naslov'".','."'$slika1'".','."'$tekst1'".','."'$detTekst'".')" >Opsirnije...</a>';
 
-      $id=$vijest["id"];
+      
 
       //iscitavanje broja komentara vezanih za novost
        $komentarii = $veza->query('select id from komentari where novost='."'$id'".'');
@@ -61,8 +61,9 @@
                 .$Slika. '
                 <br> '.ucfirst( strtolower($vijest['Naslov'])).'<br></a>
                 <div class="Opis"><br>'. $vijest['Tekst'].'</div>
-                <div class="Autor"><br>'.$vijest['Autor'].','.$vijest['Datum'].'</div>'.$DetaljnijiOpis1.' <div> <br><a class="Opsirnije"  onClick="OstaviKomentar('."'$id'".')"> Ostavi Komentar </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="Opsirnije1"  onClick="ProcitajKomentare('."'$id'".')"> '."$brojKomentara".' komentara </a><div></li>';
+                <div class="Autor"><br>'.$vijest['Autor'].','.$vijest['Datum'].'</div>'.$DetaljnijiOpis1.' <div> <br><a class="Opsirnije"  onClick="OstaviKomentar('."'$id'".')"> Ostavi Komentar </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="Opsirnije1"  onClick="ProcitajKomentare('."'$id'".')"> '."$brojKomentara".' komentara </a><div></li><li><div id="refresh'.$id.'"></div></li>';
      }
+     print '<ul>'.$prikaz_novosti.'</ul>';
     ?>
   </body>
 </html>

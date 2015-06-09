@@ -11,16 +11,16 @@
 		$password=md5($password);
 	$veza = new PDO("mysql:dbname=wt_baza;host=localhost;charset=utf8", "Elma", "root");
     	$veza->exec("set names utf8");
-   	$dodavanje=$veza->prepare('INSERT INTO administratori(username,password,email)VALUES(:username,:password,:email)');
+   	$dodavanje=$veza->prepare('INSERT INTO korisnici(username,password,email)VALUES(:username,:password,:email)');
    	$dodavanje->bindParam(":username",$username);
    	$dodavanje->bindParam(":password",$password);
    	$dodavanje->bindParam(":email",$email);
    
    if($dodavanje->execute()){	
-   echo "Uspješno ste dodali admina!";}
+   echo "Uspješno ste dodali korisnika!";}
    else
    {
-   		echo "Administarorski username mora biti jedinstven!";
+   		echo "Korisnicki username mora biti jedinstven!";
    }
 
 

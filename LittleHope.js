@@ -2,6 +2,12 @@ function Prikazi_error(tekst)
 {
 	document.getElementById("error").innerHTML=tekst;
 }
+var videSeKomentari={};
+var vidiSeDetaljnije={};
+var broj=0;
+var timer;
+var timer2;
+
 function AboutUs() {
 	var ajax;
 	if (window.XMLHttpRequest)
@@ -118,7 +124,8 @@ function LoginForma() {
 	ajax.onreadystatechange = function() {// Anonimna funkcija
 
 		if (ajax.readyState == 4 && ajax.status == 200)
-			document.getElementById("DinamickiDio").innerHTML = ajax.responseText;
+			{document.getElementById("DinamickiDio").innerHTML = ajax.responseText;
+			}
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
 	};
@@ -567,16 +574,38 @@ function OdjaviSe() {
 	ajax.onreadystatechange = function() {// Anonimna funkcija
 
 		if (ajax.readyState == 4 && ajax.status == 200)
-			document.getElementById("DinamickiZaAdmina").innerHTML = ajax.responseText;
+			{document.getElementById("DinamickiZaAdmina").innerHTML = ajax.responseText;
+			alert("Uspjesno ste odjavljeni!");location.reload();}
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("DinamickiZaAdmina").innerHTML = "Greska: nepoznat URL";
 	};
 	ajax.open("GET", "OdjavaAdmina.php", true);
 	ajax.send();
 }
-function UcitajDetaljnije(Datum,Autor,Naslov,Slika,Opis,DetaljnijiOpis) {
+function OdjaviSe1() {
 	var ajax;
+	if (window.XMLHttpRequest)
+	  {//code for IE7+, Firefox, Chrome, Opera, Safari
+	  ajax=new XMLHttpRequest();
+	  }
+	else
+	  {// code for IE6, IE5
+	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
+	  }	
+	ajax.onreadystatechange = function() {// Anonimna funkcija
 
+		if (ajax.readyState == 4 && ajax.status == 200)
+			{document.getElementById("konj").innerHTML = ajax.responseText;
+			alert("Uspjesno ste odjavljeni!");location.reload();}
+		if (ajax.readyState == 4 && ajax.status == 404)
+			document.getElementById("konj").innerHTML = "Greska: nepoznat URL";
+	};
+	ajax.open("GET", "OdjavaAdmina.php", true);
+	ajax.send();
+}
+function UcitajDetaljnije(id,Datum,Autor,Naslov,Slika,Opis,DetaljnijiOpis) {
+	var ajax;
+	vidiSeDetaljnije[id];
 	if (window.XMLHttpRequest)
 	  {//code for IE7+, Firefox, Chrome, Opera, Safari
 	  ajax=new XMLHttpRequest();
@@ -585,12 +614,15 @@ function UcitajDetaljnije(Datum,Autor,Naslov,Slika,Opis,DetaljnijiOpis) {
 	  {// code for IE6, IE5
 	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
 	  }	
+	  var refresh1="refresh"+id+"";
+	  var refresh2="nekiId"+id+"";
 	ajax.onreadystatechange = function() {// Anonimna funkcija
 
 		if (ajax.readyState == 4 && ajax.status == 200)
-			document.getElementById("Novosti").innerHTML = ajax.responseText;
+			if(vidiSeDetaljnije[id]===undefined || vidiSeDetaljnije[id]==0 ){document.getElementById(refresh2).innerHTML = ajax.responseText;document.getElementById(refresh1).innerHTML="";vidiSeDetaljnije[id]=1;videSeKomentari[id]=0;}
+			else{document.getElementById(refresh2).innerHTML="";vidiSeDetaljnije[id]=0;}
 		if (ajax.readyState == 4 && ajax.status == 404)
-			document.getElementById("Novosti").innerHTML = "Greska: nepoznat URL";
+			document.getElementById(refresh1).innerHTML = "Greska: nepoznat URL";
 	};
 	var link="Detaljnije.php?Naslov="+Naslov+"&Autor="+Autor+"&Datum="+Datum+"&Slika="+ Slika+"&Opis="+Opis+"&DetaljnijiOpis="+DetaljnijiOpis+"";
 	ajax.open("GET", link , true);
@@ -704,6 +736,33 @@ function ResetujSifru() {
 }
 
 }
+function ResetujSifru1() {
+	var ans = confirm ("Jeste li sigurni da želite resetovati password?");
+	if(ans){
+		var name=document.getElementById('name1').value;
+		name = encodeURIComponent(name);
+	var ajax;
+	if (window.XMLHttpRequest)
+	  {//code for IE7+, Firefox, Chrome, Opera, Safari
+	  ajax=new XMLHttpRequest();
+	  } 
+	else
+	  {// code for IE6, IE5
+	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
+	  }	
+	ajax.onreadystatechange = function() {// Anonimna funkcija
+
+		if (ajax.readyState == 4 && ajax.status == 200)
+			document.getElementById("DinamickiDio").innerHTML = ajax.responseText;
+		if (ajax.readyState == 4 && ajax.status == 404)
+			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
+	};
+	var link="ResetujSifru1.php?Name="+name+"";
+	ajax.open("GET", link , true);
+	ajax.send();
+}
+
+}
 function OstaviKomentar(id){
 	var ajax;
 
@@ -779,14 +838,13 @@ function DodajNovost1(){
 	ajax.open("GET", link , true);
 	ajax.send();
 }
-function OstaviKomentar2(id){
+function OstaviKomentar2(id,name,email){
 	var ajax;
-	var name=document.getElementById("name").value;
-	var email=document.getElementById("email").value;
-	var tekst=document.getElementById("text").value;
+	var tekst=document.getElementById("text"+id+"").value;
 	name = encodeURIComponent(name);
 	email = encodeURIComponent(email);
 	tekst = encodeURIComponent(tekst);
+	if(tekst.trim()=="" || tekst==null){alert('Morate unijeti komentar!');}else {
 	if (window.XMLHttpRequest)
 	  {//code for IE7+, Firefox, Chrome, Opera, Safari
 	  ajax=new XMLHttpRequest();
@@ -795,16 +853,20 @@ function OstaviKomentar2(id){
 	  {// code for IE6, IE5
 	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
 	  }	
+	  var refreshy="refresh"+id+"";
 	ajax.onreadystatechange = function() {// Anonimna funkcija
 
 		if (ajax.readyState == 4 && ajax.status == 200)
-			document.getElementById("Novosti").innerHTML = ajax.responseText;
+			{document.getElementById(refreshy).innerHTML = ajax.responseText;
+				ProcitajKomentarex(id);
+			}
 		if (ajax.readyState == 4 && ajax.status == 404)
-			document.getElementById("Novosti").innerHTML = "Greska: nepoznat URL";
+			document.getElementById(refreshy).innerHTML = "Greska: nepoznat URL";
 	};
 	var link="OstaviKomentar.php?Id="+id+"&Name="+name+"&Email="+email+"&Tekst="+ tekst+"";
-	ajax.open("GET", link , true);
-	ajax.send();
+	ajax.open("GET", link , true);ajax.send();
+}
+	
 }
 function SpasiIzmjeneKorisnika(id){
 	var ajax;
@@ -833,6 +895,33 @@ function SpasiIzmjeneKorisnika(id){
 	ajax.open("GET", link , true);
 	ajax.send();
 }
+function SpasiIzmjeneKorisnika2(id){
+	var ajax;
+	var name=document.getElementById("name").value;
+	var email=document.getElementById("email").value;
+	var password=document.getElementById("password").value;
+	name = encodeURIComponent(name);
+	email = encodeURIComponent(email);
+	password = encodeURIComponent(password);
+	if (window.XMLHttpRequest)
+	  {//code for IE7+, Firefox, Chrome, Opera, Safari
+	  ajax=new XMLHttpRequest();
+	  } 
+	else
+	  {// code for IE6, IE5
+	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
+	  }	
+	ajax.onreadystatechange = function() {// Anonimna funkcija
+
+		if (ajax.readyState == 4 && ajax.status == 200)
+			document.getElementById("DinamickiDio").innerHTML = ajax.responseText;
+		if (ajax.readyState == 4 && ajax.status == 404)
+			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
+	};
+	var link="SpasiIzmjeneKorisnika2.php?Id="+id+"&Username="+name+"&Email="+email+"&Password="+ password+"";
+	ajax.open("GET", link , true);
+	ajax.send();
+}
 function OtvoriAdminPanel(){
 	var ajax;
 	var name=document.getElementById("name").value;
@@ -858,6 +947,31 @@ function OtvoriAdminPanel(){
 	ajax.open("GET", link , true);
 	ajax.send();
 }
+function OtvoriKorisnikPanel(){
+	var ajax;
+	var name=document.getElementById("name1").value;
+	var pass=document.getElementById("email1").value;
+	name = encodeURIComponent(name);
+	pass= encodeURIComponent(pass);
+	if (window.XMLHttpRequest)
+	  {//code for IE7+, Firefox, Chrome, Opera, Safari
+	  ajax=new XMLHttpRequest();
+	  } 
+	else
+	  {// code for IE6, IE5
+	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
+	  }	
+	ajax.onreadystatechange = function() {// Anonimna funkcija
+
+		if (ajax.readyState == 4 && ajax.status == 200)
+			{document.getElementById("konj").innerHTML = ajax.responseText;location.reload();}
+		if (ajax.readyState == 4 && ajax.status == 404)
+			document.getElementById("konj").innerHTML = "Greska: nepoznat URL";
+	};
+	var link="ProvjeraKorisnika.php?Name="+name+"&Password="+pass+"";
+	ajax.open("GET", link , true);
+	ajax.send();
+}
 function OtvoriPanelKorisnika(){
 	var ajax;
 	if (window.XMLHttpRequest)
@@ -876,6 +990,27 @@ function OtvoriPanelKorisnika(){
 			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
 	};
 	var link="PanelKorisnika.php";
+	ajax.open("GET", link , true);
+	ajax.send();
+}
+function OtvoriPanelKorisnika2(){
+	var ajax;
+	if (window.XMLHttpRequest)
+	  {//code for IE7+, Firefox, Chrome, Opera, Safari
+	  ajax=new XMLHttpRequest();
+	  } 
+	else
+	  {// code for IE6, IE5
+	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
+	  }	
+	ajax.onreadystatechange = function() {// Anonimna funkcija
+
+		if (ajax.readyState == 4 && ajax.status == 200)
+			document.getElementById("DinamickiDio").innerHTML = ajax.responseText;
+		if (ajax.readyState == 4 && ajax.status == 404)
+			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
+	};
+	var link="PanelKorisnika2.php";
 	ajax.open("GET", link , true);
 	ajax.send();
 }
@@ -900,8 +1035,29 @@ function UrediKorisnika(username){
 	ajax.open("GET", link , true);
 	ajax.send();
 }
+function UrediKorisnika2(username){
+	var ajax;
+	if (window.XMLHttpRequest)
+	  {//code for IE7+, Firefox, Chrome, Opera, Safari
+	  ajax=new XMLHttpRequest();
+	  } 
+	else
+	  {// code for IE6, IE5
+	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
+	  }	
+	ajax.onreadystatechange = function() {// Anonimna funkcija
+
+		if (ajax.readyState == 4 && ajax.status == 200)
+			document.getElementById("DinamickiDio").innerHTML = ajax.responseText;
+		if (ajax.readyState == 4 && ajax.status == 404)
+			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
+	};
+	var link="UrediKorisnika2.php?Username="+username+"";
+	ajax.open("GET", link , true);
+	ajax.send();
+}
 function ObrisiKorisnika(username){
-	var ans = confirm ("Jeste li sigurni da želite obrisati korisnika?");
+	var ans = confirm ("Jeste li sigurni da želite obrisati administratora?");
 	if(ans){
 	var ajax;
 
@@ -925,9 +1081,11 @@ function ObrisiKorisnika(username){
 	ajax.send();
 }
 }
-function ProcitajKomentare(id){
+function ObrisiKorisnika2(username){
+	var ans = confirm ("Jeste li sigurni da želite obrisati korisnika?");
+	if(ans){
 	var ajax;
-	
+
 	if (window.XMLHttpRequest)
 	  {//code for IE7+, Firefox, Chrome, Opera, Safari
 	  ajax=new XMLHttpRequest();
@@ -939,13 +1097,171 @@ function ProcitajKomentare(id){
 	ajax.onreadystatechange = function() {// Anonimna funkcija
 
 		if (ajax.readyState == 4 && ajax.status == 200)
-			document.getElementById("Novosti").innerHTML = ajax.responseText;
+			document.getElementById("DinamickiDio").innerHTML = ajax.responseText;
 		if (ajax.readyState == 4 && ajax.status == 404)
-			document.getElementById("Novosti").innerHTML = "Greska: nepoznat URL";
+			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
+	};
+	var link="ObrisiKorisnika2.php?Username="+username+"";
+	ajax.open("GET", link , true);
+	ajax.send();
+}
+}
+function ProcitajKomentare1(id){
+	var ajax;
+	videSeKomentari[id];
+	indikator=id;
+	if (window.XMLHttpRequest)
+	  {//code for IE7+, Firefox, Chrome, Opera, Safari
+	  ajax=new XMLHttpRequest();
+	  } 
+	else
+	  {// code for IE6, IE5
+	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
+	  }	
+	  var refreshaaa="nekiId"+id+"";
+	ajax.onreadystatechange = function() {// Anonimna funkcija
+
+		if (ajax.readyState == 4 && ajax.status == 200)
+			if(videSeKomentari[id] === undefined || videSeKomentari[id]==0){document.getElementById(refreshaaa).innerHTML = ajax.responseText; ProcitajKomentare2(id);}
+			else{document.getElementById(refreshaaa).innerHTML = "";ProcitajKomentare2(id);}
+		if (ajax.readyState == 4 && ajax.status == 404)
+			document.getElementById(refreshaaa).innerHTML = "Greska: nepoznat URL";
+	};
+	var link="OstaviKomentarForm.php?Id="+id+"";
+	ajax.open("GET", link , true);
+	ajax.send();
+	
+	//clearTimeout(timer);
+	//timer2=setTimeout(ProcitajKomentare, 5000,id);
+}
+function ProcitajKomentare2(id){
+	var ajax;
+	videSeKomentari[id];
+	indikator=id;
+	if (window.XMLHttpRequest)
+	  {//code for IE7+, Firefox, Chrome, Opera, Safari
+	  ajax=new XMLHttpRequest();
+	  } 
+	else
+	  {// code for IE6, IE5
+	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
+	  }	
+	  var refresh="refresh"+id+"";
+	ajax.onreadystatechange = function() {// Anonimna funkcija
+
+		if (ajax.readyState == 4 && ajax.status == 200)
+			{if(videSeKomentari[id] === undefined || videSeKomentari[id]==0){document.getElementById(refresh).innerHTML = ajax.responseText;videSeKomentari[id]=1;vidiSeDetaljnije[id]=0;}
+			else{document.getElementById(refresh).innerHTML = "";videSeKomentari[id]=0;}ProcitajKomentarex(id);}
+		if (ajax.readyState == 4 && ajax.status == 404)
+			document.getElementById(refresh).innerHTML = "Greska: nepoznat URL";
 	};
 	var link="PogledajKomentare.php?Id="+id+"";
 	ajax.open("GET", link , true);
 	ajax.send();
+	
+	//clearTimeout(timer);
+	//timer2=setTimeout(ProcitajKomentare, 5000,id);
+}
+/*function ProcitajFormu(id){
+	var ajax;
+	videSeKomentari[id];
+	indikator=id;
+	if (window.XMLHttpRequest)
+	  {//code for IE7+, Firefox, Chrome, Opera, Safari
+	  ajax=new XMLHttpRequest();
+	  } 
+	else
+	  {// code for IE6, IE5
+	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
+	  }	
+	  var refreshx="zaFormu"+id+"";
+	ajax.onreadystatechange = function() {// Anonimna funkcija
+
+		if (ajax.readyState == 4 && ajax.status == 200)
+			if(videSeKomentari[id] === undefined || videSeKomentari[id]==0){document.getElementById(refreshx).innerHTML = ajax.responseText;}
+			else{document.getElementById(refreshx).innerHTML = "";}
+		if (ajax.readyState == 4 && ajax.status == 404)
+			document.getElementById(refreshx).innerHTML = "Greska: nepoznat URL";
+	};
+	var link="OstaviKomentarForm.php?Id="+id+"";
+	ajax.open("GET", link , true);
+	ajax.send();
+	
+	//clearTimeout(timer);
+	//timer2=setTimeout(ProcitajKomentare, 5000,id);
+}*/
+
+function Funkcija()
+{	
+	//skrol=document.getElementById("Novosti");
+	
+
+	var ajax;
+	if (window.XMLHttpRequest)
+	  {//code for IE7+, Firefox, Chrome, Opera, Safari
+	  ajax=new XMLHttpRequest();
+	  }
+	else
+	  {// code for IE6, IE5
+	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
+	  }	
+	ajax.onreadystatechange = function() {// Anonimna funkcija
+
+		if (ajax.readyState == 4 && ajax.status == 200)
+			{document.getElementById("refresh").innerHTML = ajax.responseText;
+					
+					
+					for (var property in videSeKomentari) {
+					if (videSeKomentari.hasOwnProperty(property)) {
+					//
+					ProcitajKomentarex(property);
+
+					}
+					}
+					
+
+		}
+		if (ajax.readyState == 4 && ajax.status == 404)
+			document.getElementById("refresh").innerHTML = "Greska: nepoznat URL";
+	};
+	ajax.open("GET", "ManipulacijaNovostiRest.php", true);
+	ajax.send();
+	
+	//document.getElementById("refresh").innerHTML="<?php include 'NovostiBaza.php'?> <div id='Novosti'> <ul> <?php print $prikaz_novosti;?> </ul> </div>";
+ 	//clearTimeout(timer2);
+ 	//Stimer=setTimeout(Funkcija, 10000);
+
+}
+function ProcitajKomentarex(id){
+	var ajax;
+	//videSeKomentari[id];
+	
+	indikator=id;
+	if (window.XMLHttpRequest)
+	  {//code for IE7+, Firefox, Chrome, Opera, Safari
+	  ajax=new XMLHttpRequest();
+	  } 
+	else
+	  {// code for IE6, IE5
+	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
+	  }	
+	  var refreshyy="refresh"+id+"";
+	  //alert("beze");
+	ajax.onreadystatechange = function() {// Anonimna funkcija
+
+		if (ajax.readyState == 4 && ajax.status == 200){
+			if(videSeKomentari[id] === undefined || videSeKomentari[id]==0){document.getElementById(refreshyy).innerHTML = "";}
+			else{document.getElementById(refreshyy).innerHTML = ajax.responseText;}
+		}
+		if (ajax.readyState == 4 && ajax.status == 404)
+			document.getElementById(refreshyy).innerHTML = "Greska: nepoznat URL";
+	};
+	var link="PogledajKomentare.php?Id="+id+"";
+	ajax.open("GET", link , true);
+	ajax.send();
+	
+	//clearTimeout(timer);
+	timer2=setTimeout(ProcitajKomentarex, 5000,id);
 }
 function EducationCreative() {
 	var ajax;
@@ -987,6 +1303,26 @@ function DodajAdmina() {
 	ajax.open("GET", "DodajAdminaForm.php", true);
 	ajax.send();
 }
+function DodajKorisnika() {
+	var ajax;
+	if (window.XMLHttpRequest)
+	  {//code for IE7+, Firefox, Chrome, Opera, Safari
+	  ajax=new XMLHttpRequest();
+	  }
+	else
+	  {// code for IE6, IE5
+	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
+	  }	
+	ajax.onreadystatechange = function() {// Anonimna funkcija
+
+		if (ajax.readyState == 4 && ajax.status == 200)
+			document.getElementById("DinamickiDio").innerHTML = ajax.responseText;
+		if (ajax.readyState == 4 && ajax.status == 404)
+			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
+	};
+	ajax.open("GET", "DodajKorisnikaForm.php", true);
+	ajax.send();
+}
 function DodajAdmina1() {
 	var ajax;
 	var name=document.getElementById("name").value;
@@ -1011,6 +1347,32 @@ function DodajAdmina1() {
 			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
 	};
 	ajax.open("GET", "DodajAdmina.php?Username="+name+"&Password="+password+"&Email="+email+"", true);
+	ajax.send();
+}
+function DodajKorisnika1() {
+	var ajax;
+	var name=document.getElementById("name").value;
+	var email=document.getElementById("email").value;
+	var password=document.getElementById("password").value;
+	name = encodeURIComponent(name);
+	email = encodeURIComponent(email);
+	password = encodeURIComponent(password);
+	if (window.XMLHttpRequest)
+	  {//code for IE7+, Firefox, Chrome, Opera, Safari
+	  ajax=new XMLHttpRequest();
+	  }
+	else
+	  {// code for IE6, IE5
+	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
+	  }	
+	ajax.onreadystatechange = function() {// Anonimna funkcija
+
+		if (ajax.readyState == 4 && ajax.status == 200)
+			document.getElementById("DinamickiDio").innerHTML = ajax.responseText;
+		if (ajax.readyState == 4 && ajax.status == 404)
+			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
+	};
+	ajax.open("GET", "DodajKorisnika.php?Username="+name+"&Password="+password+"&Email="+email+"", true);
 	ajax.send();
 }
 function PozoviBrisanje(){

@@ -1,3 +1,4 @@
+<script src="LittleHope.js"></script>
 <?php
 		
 	$idNovosti=$_GET['Id'];
@@ -15,8 +16,5 @@
    	$dodavanje->bindParam(":tekst",$Tekst);
    	$dodavanje->bindParam(":id",$idNovosti);
    	$dodavanje->execute();
-   	echo "Uspješno ste dodali komentar!";
-   	
-
-
-  ?>
+   	//echo "Uspješno ste dodali komentar!";
+ ?>

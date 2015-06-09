@@ -4,7 +4,7 @@
 $bool=0;
 			 $veza = new PDO("mysql:dbname=wt_baza;host=localhost;charset=utf8", "Elma", "root");
      $veza->exec("set names utf8");
-      $admini = $veza->query('select username,email,password from administratori');
+      $admini = $veza->query('select username,email,password from korisnici');
      if (!$admini) { echo "greska!";}
      foreach ($admini as $admin) {
 
@@ -19,7 +19,7 @@ $bool=0;
 				$headers="From: ekusundzij1@etf.unsa.ba";
 				$subject ="Reset_Sifre";
 				$date=time();
-				$message = "Ako zelite resetovati password kliknite na sljedeci link: <a href='http://littlehope-ekusundzija.rhcloud.com/sifra.php?Name=".$name."&Vrijeme=".$date."'>link za promjenu sifre</a>";
+				$message = "Ako zelite resetovati password kliknite na sljedeci link: <a href='http://littlehope-ekusundzija.rhcloud.com/sifra1.php?Name=".$name."&Vrijeme=".$date."'>link za promjenu sifre</a>";
 
 				if(mail($to,$subject,$message,$headers))
 				{

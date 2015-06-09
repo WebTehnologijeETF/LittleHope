@@ -1,3 +1,9 @@
+
+           
+
+
+
+            
 <?php
 			$id=$_GET['Id'];
 
@@ -6,10 +12,11 @@
       $komentarii = $veza->query('select Id,Datum,Autor,Email,Tekst from komentari where novost='."'$id'".' order by Datum desc');
      if (!$komentarii) { echo "greska!";}
 
-    $prikazNovosti="";
+    $prikazNovosti="";echo "KOMENTARI";
      foreach ($komentarii as $komentar) {
      	if($komentar['Autor']=="")$Autor="Anonimni autor";
      		else $Autor=$komentar['Autor'];
+
         $prikazNovosti= $prikazNovosti.'<li class="novosti_lista">
         									<div class="Autor">'.$komentar['Datum'].',&nbsp;&nbsp;
         									'.$Autor.' ,&nbsp;&nbsp;
@@ -18,6 +25,6 @@
 
         }
 
-        echo $prikazNovosti;
+        echo '<ul id="komentari2">'.$prikazNovosti.'</ul>';
 
 ?>

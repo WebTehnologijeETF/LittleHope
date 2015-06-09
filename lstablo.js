@@ -1,4 +1,4 @@
-function Funkcija()
+function Funkcija1()
 {
 	document.getElementById("Podlista1").style.display="none";
 	document.getElementById("Podlista2").style.display="none";
