@@ -12,15 +12,15 @@
      	foreach ($rezultat as $admin) {$brojac=$brojac+1;}
      		if($brojac==1){ 
      			
-     	echo "Nemoguce obrisati posljednjeg administratora!";
+     	echo "Unable to erase last administrator!";
         
     }
     else if($trenutniKorisnik==$admin['username'])
     {
-        echo "Nemoguce obrisati sam sebe, za vrijeme sesije!";
+        echo "Unable to erase yourself, during the session!";
     }
     else{
      $veza->exec("delete from administratori where username='".$id."'");
-     echo 'Uspješno ste obrisali administratora!';
+     echo 'You have successfully deleted the administrator!';
  }
 ?>

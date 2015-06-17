@@ -12,9 +12,6 @@
      $veza->exec("set names utf8");
      $rezultat = $veza->query("select id, Naslov, Tekst, Autor,DetaljnijiTekst,Slika, Datum from novosti");
      if (!$rezultat) {
-                /*$greska = $veza->errorInfo();
-          print "SQL greška: " . $greska[2];
-          exit();*/
      }
 
 
@@ -44,10 +41,6 @@ $id=$vijest["id"];
       //iscitavanje broja komentara vezanih za novost
        $komentarii = $veza->query('select id from komentari where novost='."'$id'".'');
      if (!$rezultat) {
-                /*$greska = $veza->errorInfo();
-          print "SQL greška: " . $greska[2];
-          exit();*/
-           echo "greskica";
      }
      $brojKomentara=0;
      foreach ($komentarii as $komentar) {

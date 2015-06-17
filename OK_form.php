@@ -1,6 +1,6 @@
  
 <div id="formica">
-		<h1>Provjerite da li ste ispravno popunili kontakt formu</h1>
+		<h1>Make sure you have correctly filled out the contact form:</h1>
 		<div id="Podaci">
 		<p><?php print "Name:" .$_GET['name']; ?></p> 
 		<p><?php print "Township:" .$_GET['township']; ?></p>
@@ -9,18 +9,18 @@
 		<p><?php print "Tel:" .$tel; ?></p>
 		<p><?php print "Web:" .$web; ?></p>
 		<p><?php print "Message:" .$text; ?></p>
-		<h1>Da li ste sigurni da želite poslati ove podatke?</h1>
+		<h1>Are you sure you want to send this data?</h1>
 		
-		<form class="forma" action=<?php print "Posalji_mail.php?name=".$_GET['name']."&email=".$email."&tel".$tel."&web".$web."&text".$text; ?> method="get" ><!--onsubmit="Validacija_forme(); return false;"--> 
-		<p class="submit"><input type="submit" value="Sigurna sam" /></p>
+		<form class="forma" action=<?php print "Posalji_mail.php?name=".$_GET['name']."&email=".$email."&tel=".$tel."&web=".$web."&text=".$text; ?> method="get" ><!--onsubmit="Validacija_forme(); return false;"--> 
+		<p class="submit"><input type="submit" value="I'm sure" /></p>
 		</form>
 		<p><br><br><br></p>
 		</div>
-		<h1>Ako ste pogrešno popunili formu, možete ispod prepraviti unesene podatke</h1>
+		<h1>If you filled out form wrong, below you can edit the data entered:</h1>
 		
 		
-			<form class="forma" action="Contact_form.php"  onsubmit="Validacija_forme()" method="get" ><!--"onsubmit="--> 
-			<p class="name"><input type="text" name="name" id="name" placeholder="Imenko Prezimenko" value="<?php print $_REQUEST['name']; ?>"/>
+			<form class="forma" action="Contact_form.php" onsubmit="Validacija_forme()" method="get"  ><!----> 
+			<p class="name"><input type="text" name="name" id="name" placeholder="Name Surname" value="<?php print $_REQUEST['name']; ?>"/>
 				<label for="name">Name</label>
 
 			<p class="township"><input type="text" name="township" id="township" placeholder="Ilidža" value="<?php print $_REQUEST['township']; ?>"/>
@@ -42,7 +42,7 @@
 					<input type="radio" name="sex" value="female" <?php if(isset($_REQUEST['sex'])&&$_REQUEST['sex']=="female") print "checked"; ?>>Urgent</p>
 		
 			<p class="text"><textarea id="text" name="text" placeholder="Message for us" ><?php print $_REQUEST['text']; ?></textarea><img id="text-slika" src="http://icons.iconarchive.com/icons/fatcow/farm-fresh/24/exclamation-icon.png" alt="nesto">  <div id="error_text"></div>			
-			<p class="submit"><input type="submit" value="Slanje" /></p>
+			<p class="submit"><input type="submit" value="Send" /></p>
 			<p class="submit"><input type="submit" value="Reset" /></p>
 			<div id="error"></div>
 			</form>

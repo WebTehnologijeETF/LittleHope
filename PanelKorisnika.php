@@ -3,8 +3,8 @@
 	
     
 	print ' <ul id="lista"> 
-			<div> Administratori stranice: <br> <br> <br> </div> ';
-			 print '<div> <a id="odjava" onClick="DodajAdmina()" > DODAJ ADMINISTRATORA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> <br></div>';
+			<div> Administrators: <br> <br> <br> </div> ';
+			 print '<div> <a id="odjava" onClick="DodajAdmina()" > ADD ADMINISTRATOR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> <br></div>';
 
 
 			$veza = new PDO("mysql:dbname=wt_baza;host=localhost;charset=utf8", "Elma", "root");
@@ -14,7 +14,7 @@
 
 				foreach ($rezultat as $admin) {
 					$username=$admin['username'];
-					 print '<li><a class="li">Username: '.$admin['username'].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Email:'.$admin['email'].'</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a onClick="UrediKorisnika('."'$username'".')"> Uredi </a>&nbsp;&nbsp; <a onClick="ObrisiKorisnika('."'$username'".')"> Obrisi </a></li>';
+					 print '<li><a class="li">Username: '.$admin['username'].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Email:'.$admin['email'].'</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a onClick="UrediKorisnika('."'$username'".')"> Manage </a>&nbsp;&nbsp; <a onClick="ObrisiKorisnika('."'$username'".')"> Delete </a></li>';
 			}
 			print '</ul> ';
 

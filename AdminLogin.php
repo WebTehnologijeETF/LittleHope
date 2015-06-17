@@ -15,7 +15,7 @@
 			<br>
 			<br>
 			<br>
-			<h1>Unesi podatke</h1>
+			<h1>Required information</h1>
 			<p class="name"><input type="text" name="username" id="name" placeholder="admin"/>
 				<label for="username"> Username </label>
 
@@ -23,7 +23,7 @@
 			<p class="email" ><input type="text" name="password" id="email" placeholder="password" />
 				<label  for="password"> Password </label> <img id="email-slika" src="http://icons.iconarchive.com/icons/fatcow/farm-fresh/24/exclamation-icon.png" alt="nesto"> <div id="error_email"></div>
 			
-			<a onClick="ResetujSifru()"> Resetuj password </a>
+			<a onClick="ResetujSifru()"> Reset password </a>
 
 			<p class="submit"><input type="button"  onClick="OtvoriAdminPanel()"  value="Send" /></p>
 

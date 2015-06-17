@@ -8,6 +8,8 @@
 	$lweb=0;
 	$ltext=0;
 	$lsex=0;
+  $tel='';
+  $web='';
 	$eemail="Please enter e-mail address!";
 	$etext="Please enter your message!";
 	$edva="Please enter web or tel, if you choose to enter both, they have to be in right format - tel : 10 digits";

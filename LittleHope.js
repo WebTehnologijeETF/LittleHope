@@ -124,8 +124,7 @@ function LoginForma() {
 	ajax.onreadystatechange = function() {// Anonimna funkcija
 
 		if (ajax.readyState == 4 && ajax.status == 200)
-			{document.getElementById("DinamickiDio").innerHTML = ajax.responseText;
-			}
+			document.getElementById("DinamickiDio").innerHTML = ajax.responseText;
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
 	};
@@ -238,7 +237,7 @@ function Charity() {
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("Naslov").innerHTML = "Greska: nepoznat URL";
 	};
-	ajax.open("GET", "Charity.html", true);
+	ajax.open("GET", "Charity.php", true);
 	ajax.send();
 }
 function EducationCompetitions() {
@@ -258,7 +257,7 @@ function EducationCompetitions() {
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("Naslov").innerHTML = "Greska: nepoznat URL";
 	};
-	ajax.open("GET", "Education_competitions.html", true);
+	ajax.open("GET", "Education_competitions.php", true);
 	ajax.send();
 }
 function EducationScolarship() {
@@ -278,7 +277,7 @@ function EducationScolarship() {
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("Naslov").innerHTML = "Greska: nepoznat URL";
 	};
-	ajax.open("GET", "Education_scolarship.html", true);
+	ajax.open("GET", "Education_scolarship.php", true);
 	ajax.send();
 }
 function MedicalSurgery() {
@@ -298,7 +297,7 @@ function MedicalSurgery() {
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("Naslov").innerHTML = "Greska: nepoznat URL";
 	};
-	ajax.open("GET", "Medical_Surgery.html", true);
+	ajax.open("GET", "Medical_Surgery.php", true);
 	ajax.send();
 }
 function MedicalTreatment() {
@@ -318,7 +317,7 @@ function MedicalTreatment() {
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("Naslov").innerHTML = "Greska: nepoznat URL";
 	};
-	ajax.open("GET", "Medical_Treatment.html", true);
+	ajax.open("GET", "Medical_Treatment.php", true);
 	ajax.send();
 }
 function SportCompetitions() {
@@ -338,7 +337,7 @@ function SportCompetitions() {
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("Naslov").innerHTML = "Greska: nepoznat URL";
 	};
-	ajax.open("GET", "Sport_Competitions.html", true);
+	ajax.open("GET", "Sport_Competitions.php", true);
 	ajax.send();
 }
 function SportTournaments() {
@@ -358,7 +357,7 @@ function SportTournaments() {
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("Naslov").innerHTML = "Greska: nepoznat URL";
 	};
-	ajax.open("GET", "Sport_Toournaments.html", true);
+	ajax.open("GET", "Sport_Tournaments.php", true);
 	ajax.send();
 }
 function WishesTravel() {
@@ -378,7 +377,7 @@ function WishesTravel() {
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("Naslov").innerHTML = "Greska: nepoznat URL";
 	};
-	ajax.open("GET", "Wishes_Travel.html", true);
+	ajax.open("GET", "Wishes_Travel.php", true);
 	ajax.send();
 }
 function WishesFamily() {
@@ -398,7 +397,7 @@ function WishesFamily() {
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("Naslov").innerHTML = "Greska: nepoznat URL";
 	};
-	ajax.open("GET", "Wishes_Family.html", true);
+	ajax.open("GET", "Wishes_Family.php", true);
 	ajax.send();
 }
 function WishesCreative() {
@@ -418,7 +417,7 @@ function WishesCreative() {
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("Naslov").innerHTML = "Greska: nepoznat URL";
 	};
-	ajax.open("GET", "Wishes_Creative.html", true);
+	ajax.open("GET", "Wishes_Creative.php", true);
 	ajax.send();
 }
 function WishesEvents() {
@@ -438,7 +437,7 @@ function WishesEvents() {
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("Naslov").innerHTML = "Greska: nepoznat URL";
 	};
-	ajax.open("GET", "Wishes_Events.html", true);
+	ajax.open("GET", "Wishes_Events.php", true);
 	ajax.send();
 }
 function Other() {
@@ -458,7 +457,7 @@ function Other() {
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("Naslov").innerHTML = "Greska: nepoznat URL";
 	};
-	ajax.open("GET", "Other.html", true);
+	ajax.open("GET", "Other.php", true);
 	ajax.send();
 }
 function MostRecent() {
@@ -574,31 +573,9 @@ function OdjaviSe() {
 	ajax.onreadystatechange = function() {// Anonimna funkcija
 
 		if (ajax.readyState == 4 && ajax.status == 200)
-			{document.getElementById("DinamickiZaAdmina").innerHTML = ajax.responseText;
-			alert("Uspjesno ste odjavljeni!");location.reload();}
+			document.getElementById("DinamickiZaAdmina").innerHTML = ajax.responseText;
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("DinamickiZaAdmina").innerHTML = "Greska: nepoznat URL";
-	};
-	ajax.open("GET", "OdjavaAdmina.php", true);
-	ajax.send();
-}
-function OdjaviSe1() {
-	var ajax;
-	if (window.XMLHttpRequest)
-	  {//code for IE7+, Firefox, Chrome, Opera, Safari
-	  ajax=new XMLHttpRequest();
-	  }
-	else
-	  {// code for IE6, IE5
-	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
-	  }	
-	ajax.onreadystatechange = function() {// Anonimna funkcija
-
-		if (ajax.readyState == 4 && ajax.status == 200)
-			{document.getElementById("konj").innerHTML = ajax.responseText;
-			alert("Uspjesno ste odjavljeni!");location.reload();}
-		if (ajax.readyState == 4 && ajax.status == 404)
-			document.getElementById("konj").innerHTML = "Greska: nepoznat URL";
 	};
 	ajax.open("GET", "OdjavaAdmina.php", true);
 	ajax.send();
@@ -635,11 +612,13 @@ function UnesiIzmjeneNovosti(id) {
 	var tekst=document.getElementById("tekst").value;
 	var detTekst=document.getElementById("detText").value;
 	var slika=document.getElementById("slika").value;
+	var kat=document.getElementById("kategorija").value;
 	naslov = encodeURIComponent(naslov);
 	autor = encodeURIComponent(autor);
 	tekst = encodeURIComponent(tekst);
 	detTekst = encodeURIComponent(detTekst);
 	slika = encodeURIComponent(slika);
+	kat = encodeURIComponent(kat);
 	if (window.XMLHttpRequest)
 	  {//code for IE7+, Firefox, Chrome, Opera, Safari
 	  ajax=new XMLHttpRequest();
@@ -655,12 +634,12 @@ function UnesiIzmjeneNovosti(id) {
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("DinamickiZaAdmina").innerHTML = "Greska: nepoznat URL";
 	};
-	var link="UpdateNovost.php?Id="+id+"&Naslov="+naslov+"&Autor="+autor+"&Slika="+ slika+"&Opis="+tekst+"&DetaljnijiOpis="+detTekst+"";
+	var link="UpdateNovost.php?Id="+id+"&Naslov="+naslov+"&Autor="+autor+"&Slika="+ slika+"&Opis="+tekst+"&DetaljnijiOpis="+detTekst+"&Kategorija="+kat+"";
 	ajax.open("GET", link , true);
 	ajax.send();
 }
 function ObrisiNovost(id) {
-	var ans = confirm ("Jeste li sigurni da želite obrisati novost?");
+	var ans = confirm ("Are you sure you want to delete this news?");
 	if(ans){
 	var ajax;
 	if (window.XMLHttpRequest)
@@ -685,7 +664,7 @@ function ObrisiNovost(id) {
 
 }
 function ObrisiKomentar(id) {
-	var ans = confirm ("Jeste li sigurni da želite obrisati komentar?");
+	var ans = confirm ("Are you sure you want to delete this comment?");
 	if(ans){
 	var ajax;
 	if (window.XMLHttpRequest)
@@ -710,7 +689,7 @@ function ObrisiKomentar(id) {
 
 }
 function ResetujSifru() {
-	var ans = confirm ("Jeste li sigurni da želite resetovati password?");
+	var ans = confirm ("Are you sure you want to reset this password?");
 	if(ans){
 		var name=document.getElementById('name').value;
 		name = encodeURIComponent(name);
@@ -731,33 +710,6 @@ function ResetujSifru() {
 			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
 	};
 	var link="ResetujSifru.php?Name="+name+"";
-	ajax.open("GET", link , true);
-	ajax.send();
-}
-
-}
-function ResetujSifru1() {
-	var ans = confirm ("Jeste li sigurni da želite resetovati password?");
-	if(ans){
-		var name=document.getElementById('name1').value;
-		name = encodeURIComponent(name);
-	var ajax;
-	if (window.XMLHttpRequest)
-	  {//code for IE7+, Firefox, Chrome, Opera, Safari
-	  ajax=new XMLHttpRequest();
-	  } 
-	else
-	  {// code for IE6, IE5
-	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
-	  }	
-	ajax.onreadystatechange = function() {// Anonimna funkcija
-
-		if (ajax.readyState == 4 && ajax.status == 200)
-			document.getElementById("DinamickiDio").innerHTML = ajax.responseText;
-		if (ajax.readyState == 4 && ajax.status == 404)
-			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
-	};
-	var link="ResetujSifru1.php?Name="+name+"";
 	ajax.open("GET", link , true);
 	ajax.send();
 }
@@ -838,13 +790,15 @@ function DodajNovost1(){
 	ajax.open("GET", link , true);
 	ajax.send();
 }
-function OstaviKomentar2(id,name,email){
+function OstaviKomentar2(id){
 	var ajax;
+	var name=document.getElementById("name"+id+"").value;
+	var email=document.getElementById("email"+id+"").value;
 	var tekst=document.getElementById("text"+id+"").value;
 	name = encodeURIComponent(name);
 	email = encodeURIComponent(email);
 	tekst = encodeURIComponent(tekst);
-	if(tekst.trim()=="" || tekst==null){alert('Morate unijeti komentar!');}else {
+	if(tekst.trim()=="" || tekst==null){alert('You must enter a comment!');}else {
 	if (window.XMLHttpRequest)
 	  {//code for IE7+, Firefox, Chrome, Opera, Safari
 	  ajax=new XMLHttpRequest();
@@ -895,33 +849,6 @@ function SpasiIzmjeneKorisnika(id){
 	ajax.open("GET", link , true);
 	ajax.send();
 }
-function SpasiIzmjeneKorisnika2(id){
-	var ajax;
-	var name=document.getElementById("name").value;
-	var email=document.getElementById("email").value;
-	var password=document.getElementById("password").value;
-	name = encodeURIComponent(name);
-	email = encodeURIComponent(email);
-	password = encodeURIComponent(password);
-	if (window.XMLHttpRequest)
-	  {//code for IE7+, Firefox, Chrome, Opera, Safari
-	  ajax=new XMLHttpRequest();
-	  } 
-	else
-	  {// code for IE6, IE5
-	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
-	  }	
-	ajax.onreadystatechange = function() {// Anonimna funkcija
-
-		if (ajax.readyState == 4 && ajax.status == 200)
-			document.getElementById("DinamickiDio").innerHTML = ajax.responseText;
-		if (ajax.readyState == 4 && ajax.status == 404)
-			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
-	};
-	var link="SpasiIzmjeneKorisnika2.php?Id="+id+"&Username="+name+"&Email="+email+"&Password="+ password+"";
-	ajax.open("GET", link , true);
-	ajax.send();
-}
 function OtvoriAdminPanel(){
 	var ajax;
 	var name=document.getElementById("name").value;
@@ -947,31 +874,6 @@ function OtvoriAdminPanel(){
 	ajax.open("GET", link , true);
 	ajax.send();
 }
-function OtvoriKorisnikPanel(){
-	var ajax;
-	var name=document.getElementById("name1").value;
-	var pass=document.getElementById("email1").value;
-	name = encodeURIComponent(name);
-	pass= encodeURIComponent(pass);
-	if (window.XMLHttpRequest)
-	  {//code for IE7+, Firefox, Chrome, Opera, Safari
-	  ajax=new XMLHttpRequest();
-	  } 
-	else
-	  {// code for IE6, IE5
-	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
-	  }	
-	ajax.onreadystatechange = function() {// Anonimna funkcija
-
-		if (ajax.readyState == 4 && ajax.status == 200)
-			{document.getElementById("konj").innerHTML = ajax.responseText;location.reload();}
-		if (ajax.readyState == 4 && ajax.status == 404)
-			document.getElementById("konj").innerHTML = "Greska: nepoznat URL";
-	};
-	var link="ProvjeraKorisnika.php?Name="+name+"&Password="+pass+"";
-	ajax.open("GET", link , true);
-	ajax.send();
-}
 function OtvoriPanelKorisnika(){
 	var ajax;
 	if (window.XMLHttpRequest)
@@ -985,32 +887,11 @@ function OtvoriPanelKorisnika(){
 	ajax.onreadystatechange = function() {// Anonimna funkcija
 
 		if (ajax.readyState == 4 && ajax.status == 200)
-			document.getElementById("DinamickiDio").innerHTML = ajax.responseText;
+			document.getElementById("DinamickiZaAdmina").innerHTML = ajax.responseText;
 		if (ajax.readyState == 4 && ajax.status == 404)
-			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
+			document.getElementById("DinamickiZaAdmina").innerHTML = "Greska: nepoznat URL";
 	};
 	var link="PanelKorisnika.php";
-	ajax.open("GET", link , true);
-	ajax.send();
-}
-function OtvoriPanelKorisnika2(){
-	var ajax;
-	if (window.XMLHttpRequest)
-	  {//code for IE7+, Firefox, Chrome, Opera, Safari
-	  ajax=new XMLHttpRequest();
-	  } 
-	else
-	  {// code for IE6, IE5
-	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
-	  }	
-	ajax.onreadystatechange = function() {// Anonimna funkcija
-
-		if (ajax.readyState == 4 && ajax.status == 200)
-			document.getElementById("DinamickiDio").innerHTML = ajax.responseText;
-		if (ajax.readyState == 4 && ajax.status == 404)
-			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
-	};
-	var link="PanelKorisnika2.php";
 	ajax.open("GET", link , true);
 	ajax.send();
 }
@@ -1035,29 +916,8 @@ function UrediKorisnika(username){
 	ajax.open("GET", link , true);
 	ajax.send();
 }
-function UrediKorisnika2(username){
-	var ajax;
-	if (window.XMLHttpRequest)
-	  {//code for IE7+, Firefox, Chrome, Opera, Safari
-	  ajax=new XMLHttpRequest();
-	  } 
-	else
-	  {// code for IE6, IE5
-	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
-	  }	
-	ajax.onreadystatechange = function() {// Anonimna funkcija
-
-		if (ajax.readyState == 4 && ajax.status == 200)
-			document.getElementById("DinamickiDio").innerHTML = ajax.responseText;
-		if (ajax.readyState == 4 && ajax.status == 404)
-			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
-	};
-	var link="UrediKorisnika2.php?Username="+username+"";
-	ajax.open("GET", link , true);
-	ajax.send();
-}
 function ObrisiKorisnika(username){
-	var ans = confirm ("Jeste li sigurni da želite obrisati administratora?");
+	var ans = confirm ("Are you sure you want to delete this user?");
 	if(ans){
 	var ajax;
 
@@ -1077,31 +937,6 @@ function ObrisiKorisnika(username){
 			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
 	};
 	var link="ObrisiKorisnika.php?Username="+username+"";
-	ajax.open("GET", link , true);
-	ajax.send();
-}
-}
-function ObrisiKorisnika2(username){
-	var ans = confirm ("Jeste li sigurni da želite obrisati korisnika?");
-	if(ans){
-	var ajax;
-
-	if (window.XMLHttpRequest)
-	  {//code for IE7+, Firefox, Chrome, Opera, Safari
-	  ajax=new XMLHttpRequest();
-	  } 
-	else
-	  {// code for IE6, IE5
-	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
-	  }	
-	ajax.onreadystatechange = function() {// Anonimna funkcija
-
-		if (ajax.readyState == 4 && ajax.status == 200)
-			document.getElementById("DinamickiDio").innerHTML = ajax.responseText;
-		if (ajax.readyState == 4 && ajax.status == 404)
-			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
-	};
-	var link="ObrisiKorisnika2.php?Username="+username+"";
 	ajax.open("GET", link , true);
 	ajax.send();
 }
@@ -1131,8 +966,6 @@ function ProcitajKomentare1(id){
 	ajax.open("GET", link , true);
 	ajax.send();
 	
-	//clearTimeout(timer);
-	//timer2=setTimeout(ProcitajKomentare, 5000,id);
 }
 function ProcitajKomentare2(id){
 	var ajax;
@@ -1162,34 +995,7 @@ function ProcitajKomentare2(id){
 	//clearTimeout(timer);
 	//timer2=setTimeout(ProcitajKomentare, 5000,id);
 }
-/*function ProcitajFormu(id){
-	var ajax;
-	videSeKomentari[id];
-	indikator=id;
-	if (window.XMLHttpRequest)
-	  {//code for IE7+, Firefox, Chrome, Opera, Safari
-	  ajax=new XMLHttpRequest();
-	  } 
-	else
-	  {// code for IE6, IE5
-	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
-	  }	
-	  var refreshx="zaFormu"+id+"";
-	ajax.onreadystatechange = function() {// Anonimna funkcija
 
-		if (ajax.readyState == 4 && ajax.status == 200)
-			if(videSeKomentari[id] === undefined || videSeKomentari[id]==0){document.getElementById(refreshx).innerHTML = ajax.responseText;}
-			else{document.getElementById(refreshx).innerHTML = "";}
-		if (ajax.readyState == 4 && ajax.status == 404)
-			document.getElementById(refreshx).innerHTML = "Greska: nepoznat URL";
-	};
-	var link="OstaviKomentarForm.php?Id="+id+"";
-	ajax.open("GET", link , true);
-	ajax.send();
-	
-	//clearTimeout(timer);
-	//timer2=setTimeout(ProcitajKomentare, 5000,id);
-}*/
 
 function Funkcija()
 {	
@@ -1208,7 +1014,7 @@ function Funkcija()
 	ajax.onreadystatechange = function() {// Anonimna funkcija
 
 		if (ajax.readyState == 4 && ajax.status == 200)
-			{document.getElementById("refresh").innerHTML = ajax.responseText;
+			{if(document.getElementById("refresh") != null)document.getElementById("refresh").innerHTML = ajax.responseText;
 					
 					
 					for (var property in videSeKomentari) {
@@ -1227,9 +1033,6 @@ function Funkcija()
 	ajax.open("GET", "ManipulacijaNovostiRest.php", true);
 	ajax.send();
 	
-	//document.getElementById("refresh").innerHTML="<?php include 'NovostiBaza.php'?> <div id='Novosti'> <ul> <?php print $prikaz_novosti;?> </ul> </div>";
- 	//clearTimeout(timer2);
- 	//Stimer=setTimeout(Funkcija, 10000);
 
 }
 function ProcitajKomentarex(id){
@@ -1246,7 +1049,6 @@ function ProcitajKomentarex(id){
 	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
 	  }	
 	  var refreshyy="refresh"+id+"";
-	  //alert("beze");
 	ajax.onreadystatechange = function() {// Anonimna funkcija
 
 		if (ajax.readyState == 4 && ajax.status == 200){
@@ -1280,7 +1082,7 @@ function EducationCreative() {
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("Naslov").innerHTML = "Greska: nepoznat URL";
 	};
-	ajax.open("GET", "Education_creative.html", true);
+	ajax.open("GET", "Education_creative.php", true);
 	ajax.send();
 }
 function DodajAdmina() {
@@ -1296,31 +1098,11 @@ function DodajAdmina() {
 	ajax.onreadystatechange = function() {// Anonimna funkcija
 
 		if (ajax.readyState == 4 && ajax.status == 200)
-			document.getElementById("DinamickiDio").innerHTML = ajax.responseText;
+			document.getElementById("DinamickiZaAdmina").innerHTML = ajax.responseText;
 		if (ajax.readyState == 4 && ajax.status == 404)
-			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
+			document.getElementById("DinamickiZaAdmina").innerHTML = "Greska: nepoznat URL";
 	};
 	ajax.open("GET", "DodajAdminaForm.php", true);
-	ajax.send();
-}
-function DodajKorisnika() {
-	var ajax;
-	if (window.XMLHttpRequest)
-	  {//code for IE7+, Firefox, Chrome, Opera, Safari
-	  ajax=new XMLHttpRequest();
-	  }
-	else
-	  {// code for IE6, IE5
-	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
-	  }	
-	ajax.onreadystatechange = function() {// Anonimna funkcija
-
-		if (ajax.readyState == 4 && ajax.status == 200)
-			document.getElementById("DinamickiDio").innerHTML = ajax.responseText;
-		if (ajax.readyState == 4 && ajax.status == 404)
-			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
-	};
-	ajax.open("GET", "DodajKorisnikaForm.php", true);
 	ajax.send();
 }
 function DodajAdmina1() {
@@ -1342,281 +1124,12 @@ function DodajAdmina1() {
 	ajax.onreadystatechange = function() {// Anonimna funkcija
 
 		if (ajax.readyState == 4 && ajax.status == 200)
-			document.getElementById("DinamickiDio").innerHTML = ajax.responseText;
+			document.getElementById("DinamickiZaAdmina").innerHTML = ajax.responseText;
 		if (ajax.readyState == 4 && ajax.status == 404)
-			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
+			document.getElementById("DinamickiZaAdmina").innerHTML = "Greska: nepoznat URL";
 	};
 	ajax.open("GET", "DodajAdmina.php?Username="+name+"&Password="+password+"&Email="+email+"", true);
 	ajax.send();
-}
-function DodajKorisnika1() {
-	var ajax;
-	var name=document.getElementById("name").value;
-	var email=document.getElementById("email").value;
-	var password=document.getElementById("password").value;
-	name = encodeURIComponent(name);
-	email = encodeURIComponent(email);
-	password = encodeURIComponent(password);
-	if (window.XMLHttpRequest)
-	  {//code for IE7+, Firefox, Chrome, Opera, Safari
-	  ajax=new XMLHttpRequest();
-	  }
-	else
-	  {// code for IE6, IE5
-	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
-	  }	
-	ajax.onreadystatechange = function() {// Anonimna funkcija
-
-		if (ajax.readyState == 4 && ajax.status == 200)
-			document.getElementById("DinamickiDio").innerHTML = ajax.responseText;
-		if (ajax.readyState == 4 && ajax.status == 404)
-			document.getElementById("DinamickiDio").innerHTML = "Greska: nepoznat URL";
-	};
-	ajax.open("GET", "DodajKorisnika.php?Username="+name+"&Password="+password+"&Email="+email+"", true);
-	ajax.send();
-}
-function PozoviBrisanje(){
-	var ajax;
-	if (window.XMLHttpRequest)
-	  {//code for IE7+, Firefox, Chrome, Opera, Safari
-	  ajax=new XMLHttpRequest();
-	  }
-	else
-	  {// code for IE6, IE5
-	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
-	  }	
-	ajax.onreadystatechange = function() {// Anonimna funkcija
-
-		if (ajax.readyState == 4 && ajax.status == 200)
-			document.getElementById("Promjena").innerHTML = ajax.responseText;
-		if (ajax.readyState == 4 && ajax.status == 404)
-			document.getElementById("Promjena").innerHTML = "Greska: nepoznat URL";
-	};
-	ajax.open("GET", "Brisanje_proizvoda.html", true);
-	ajax.send();
-}
-function PozoviModifikaciju(){
-	var ajax;
-	if (window.XMLHttpRequest)
-	  {//code for IE7+, Firefox, Chrome, Opera, Safari
-	  ajax=new XMLHttpRequest();
-	  }
-	else
-	  {// code for IE6, IE5
-	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
-	  }	
-	ajax.onreadystatechange = function() {// Anonimna funkcija
-
-		if (ajax.readyState == 4 && ajax.status == 200)
-			document.getElementById("Promjena").innerHTML = ajax.responseText;
-		if (ajax.readyState == 4 && ajax.status == 404)
-			document.getElementById("Promjena").innerHTML = "Greska: nepoznat URL";
-	};
-	ajax.open("GET", "ModifikacijaProizvoda..html", true);
-	ajax.send();
-}
-function PozoviDodavanje(){
-	var ajax;
-	if (window.XMLHttpRequest)
-	  {//code for IE7+, Firefox, Chrome, Opera, Safari
-	  ajax=new XMLHttpRequest();
-	  }
-	else
-	  {// code for IE6, IE5
-	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
-	  }	
-	ajax.onreadystatechange = function() {// Anonimna funkcija
-
-		if (ajax.readyState == 4 && ajax.status == 200)
-			document.getElementById("Promjena").innerHTML = ajax.responseText;
-		if (ajax.readyState == 4 && ajax.status == 404)
-			document.getElementById("Promjena").innerHTML = "Greska: nepoznat URL";
-	};
-	ajax.open("GET", "Dodavanje_proizvoda.html", true);
-	ajax.send();
-}
-function Validacija_forme_brisanje_proizvoda(){
-
-		
-		var idProizvoda=document.getElementById("id_proizvoda");
-		var ajax;
-	if (window.XMLHttpRequest)
-	  {//code for IE7+, Firefox, Chrome, Opera, Safari
-	  ajax=new XMLHttpRequest();
-	  }
-	else
-	  {// code for IE6, IE5
-	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
-	  }	
-		idProizvoda = encodeURIComponent(idProizvoda.value);
-		var Proizvod={id:idProizvoda,student:"",naziv:"",opis:"",slika:"",url:"",kolicina:"",cijena:"",dostupnost:"",kategorija:"",ocjena:""};
-		var Proizvodjson=JSON.stringify(Proizvod);
-		
-
-		ajax.onreadystatechange = function() {};
-		ajax.open("POST","http://zamger.etf.unsa.ba/wt/proizvodi.php?brindexa=",true);
-		ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		ajax.send("akcija="+"brisanje"+"&proizvod="+Proizvodjson+"&brindexa="+"16270");
- 		document.forms.submit();
-		return true;
-
-}
-function Validacija_forme_modificiranje_proizvoda(){
-	var idProizvoda=document.getElementById("id_proizvoda");
-	var naziv1=document.getElementById("naziv");
-	var url1=document.getElementById("url_slike");
-	var opis1=document.getElementById("opis");
-	idProizvoda = encodeURIComponent(idProizvoda.value);
-	var visnaziv=0
-	var visurl=0
-	var visopis=0;
-	if(naziv1.value==""|| naziv1.value==null)
-	{
-		document.getElementById("naziv-slika").style.visibility="visible";
-		document.getElementById("error_naziv").innerHTML="Unesite naziv proizovoda!";
-		visnaziv=1;
-	}
-	else
-	{
-		document.getElementById("naziv-slika").style.visibility="hidden";
-		document.getElementById("error_naziv").innerHTML="";
-		visnaziv=0;
-	}
-
-	if(url1.value==""|| url1.value==null)
-	{
-		document.getElementById("url-slika").style.visibility="visible";
-		document.getElementById("error_url").innerHTML="Unesite url proizvoda!";
-		visurl=1;
-	}
-	else
-	{
-		document.getElementById("url-slika").style.visibility="hidden";
-		document.getElementById("error_url").innerHTML="";
-		visurl=0;
-	}
-
-	if(opis1.value==""|| opis1.value==null)
-	{
-		document.getElementById("opis-slika").style.visibility="visible";
-		document.getElementById("error_opis").innerHTML="Unesite opis proizvoda!";
-		visopis=1;
-	}
-	else
-	{
-		document.getElementById("opis-slika").style.visibility="hidden";
-		document.getElementById("error_opis").innerHTML="";
-		visopis=0;
-	}
-
-	
-	
- 	if(visnaziv==0 && visurl==0 && visopis==0)
- 	{
-
- 		var ajax;
-	if (window.XMLHttpRequest)
-	  {//code for IE7+, Firefox, Chrome, Opera, Safari
-	  ajax=new XMLHttpRequest();
-	  }
-	else
-	  {// code for IE6, IE5
-	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
-	  }	
-		naziv1 = encodeURIComponent(naziv1.value);
-		url1 = encodeURIComponent(url1.value);
-		opis1 = encodeURIComponent(opis1.value);
-		var Proizvod={id:idProizvoda,student:"",naziv:naziv1,opis:opis1,slika:"",url:url1,kolicina:"",cijena:"",dostupnost:"",kategorija:"",ocjena:""};
-		var Proizvodjson=JSON.stringify(Proizvod);
-		
-		ajax.onreadystatechange = function() {};
-		ajax.open("POST","http://zamger.etf.unsa.ba/wt/proizvodi.php?brindexa=",true);
-		ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		ajax.send("akcija="+"promjenas"+"&proizvod="+Proizvodjson+ "&brindexa="+"16270");
-		
-		document.forms.submit();
-		return true;
- 	}
-
-
-}
-function Validacija_forme_dodavanje_proizvoda() {
-	var naziv1=document.getElementById("naziv");
-	var url1=document.getElementById("url_slike");
-	var opis1=document.getElementById("opis");
-	var visnaziv=0
-	var visurl=0
-	var visopis=0;
-	if(naziv1.value==""|| naziv1.value==null)
-	{
-		document.getElementById("naziv-slika").style.visibility="visible";
-		document.getElementById("error_naziv").innerHTML="Unesite naziv proizovoda!";
-		visnaziv=1;
-	}
-	else
-	{
-		document.getElementById("naziv-slika").style.visibility="hidden";
-		document.getElementById("error_naziv").innerHTML="";
-		visnaziv=0;
-	}
-
-	if(url1.value==""|| url1.value==null)
-	{
-		document.getElementById("url-slika").style.visibility="visible";
-		document.getElementById("error_url").innerHTML="Unesite url proizvoda!";
-		visurl=1;
-	}
-	else
-	{
-		document.getElementById("url-slika").style.visibility="hidden";
-		document.getElementById("error_url").innerHTML="";
-		visurl=0;
-	}
-
-	if(opis1.value==""|| opis1.value==null)
-	{
-		document.getElementById("opis-slika").style.visibility="visible";
-		document.getElementById("error_opis").innerHTML="Unesite opis proizvoda!";
-		visopis=1;
-	}
-	else
-	{
-		document.getElementById("opis-slika").style.visibility="hidden";
-		document.getElementById("error_opis").innerHTML="";
-		visopis=0;
-	}
-
-	
-	
- 	if(visnaziv==0 && visurl==0 && visopis==0)
- 	{
-
- 		var ajax;
-	if (window.XMLHttpRequest)
-	  {//code for IE7+, Firefox, Chrome, Opera, Safari
-	  ajax=new XMLHttpRequest();
-	  }
-	else
-	  {// code for IE6, IE5
-	  ajax=new ActiveXObject("Microsoft.XMLHTTP");
-	  }	
-		naziv1 = encodeURIComponent(naziv1.value);
-		url1 = encodeURIComponent(url1.value);
-		opis1 = encodeURIComponent(opis1.value);
-		var Proizvod={naziv:naziv1,opis:opis1,url:url1};
-		var Proizvodjson=JSON.stringify(Proizvod);
-		
-		ajax.onreadystatechange = function() {};
-		ajax.open("POST","http://zamger.etf.unsa.ba/wt/proizvodi.php?brindexa=",true);
-		ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		ajax.send("akcija="+"dodavanje"+"&proizvod="+Proizvodjson+ "&brindexa="+"16270");
-		
-		document.forms.submit();
-		return true;
- 	}
-
-
-
 }
 function Validacija_forme()
 {	
@@ -1744,7 +1257,8 @@ function Validacija_forme()
 
  	if(vistext==0 && vistel==0 && visemail==0 && visopcina==0)
  	{
- 		document.forms.submit();
+
+ 		//document.forms.submit();
 		return true;
  	}
 }

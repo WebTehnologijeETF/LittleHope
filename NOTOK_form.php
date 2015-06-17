@@ -3,7 +3,7 @@
 		<h1>Required informations</h1>
 		<form class="forma"  action="Contact_form.php" onsubmit="Validacija_forme()" method="get" ><!--"--> 
 			
-			<p class="name"><input type="text" name="name" id="name" placeholder="Imenko Prezimenko"  value="<?php print $_REQUEST['name']; ?>"/>
+			<p class="name"><input type="text" name="name" id="name" placeholder="Name Surname"  value="<?php print $_REQUEST['name']; ?>"/>
 				<label for="name">Name</label> 
 
 			<p class="township"><input type="text" name="township" id="township" placeholder="Ilidža"  value="<?php print $_REQUEST['township']; ?>"/>

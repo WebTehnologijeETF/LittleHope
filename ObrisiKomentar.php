@@ -5,7 +5,7 @@
 	$veza = new PDO("mysql:dbname=wt_baza;host=localhost;charset=utf8", "Elma", "root");
      $veza->exec("set names utf8");
      $veza->exec("delete from komentari where id='".$id."'");
-     echo 'Uspješno ste obrisali komentar!';
+     echo 'You have successfully deleted a comment!';
 
 
 

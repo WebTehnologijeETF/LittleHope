@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2015 at 03:10 PM
+-- Generation Time: Jun 17, 2015 at 08:02 PM
 -- Server version: 5.6.24-log
 -- PHP Version: 5.5.12
 
@@ -56,74 +56,17 @@ CREATE TABLE IF NOT EXISTS `komentari` (
   `Tekst` text COLLATE utf32_slovenian_ci NOT NULL,
   `Novost` int(11) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf32 COLLATE=utf32_slovenian_ci AUTO_INCREMENT=110 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf32 COLLATE=utf32_slovenian_ci AUTO_INCREMENT=119 ;
 
 --
 -- Dumping data for table `komentari`
 --
 
 INSERT INTO `komentari` (`Id`, `Datum`, `Autor`, `Email`, `Tekst`, `Novost`) VALUES
-(1, '2015-05-26 14:16:24', 'elma', 'elma@etf.ba', 'Divna novost', 2),
-(2, '2015-05-26 14:36:42', 'elma', 'elma@etf.ba', 'komentar broj 1', 3),
-(3, '2015-05-26 16:48:51', 'Elma Kusundzija', 'ekusundzij1@etf.unsa.ba', 'Neki glup komentar', 2),
-(4, '2015-05-26 16:52:20', 'Elma Kusundzija', 'elma_1.1@hotmail.com', 'Zadnji komentar', 2),
-(5, '2015-05-26 17:07:25', '', '', 'neki komentar', 2),
-(6, '2015-05-26 18:01:45', 'elma', 'ekusundzij1@etf.unsa.ba', 'komentar', 3),
-(7, '2015-05-26 18:16:53', 'elma', 'elma@etf.ba', 'http://www.akademija.uns.ac.rs/wp-content/uploads/2012/03/slika2011.jpg', 4),
-(8, '2015-05-26 18:27:25', '', '', '&lt;li&gt;\n&lt;div&gt; amaterski pokusaj da nesto postignem &lt;/div&gt;\n&lt;/li&gt; ', 4),
-(9, '2015-06-07 13:11:28', 'elma', 'ekusundzij1@etf.unsa.ba', 'probam dinamcki dio', 2),
-(10, '2015-06-07 13:11:54', 'elma', 'elma@etf.ba', 'probavam dinamicki dio 2', 2),
-(12, '2015-06-07 13:18:28', 'fatima', 'fatima@etf.unsa.ba', 'nikad dosta komentara za dinamiku', 2),
-(14, '2015-06-07 17:54:11', 'elma', 'bla@elma', 'da li ce ostati', 2),
-(21, '2015-06-07 22:43:50', 'bla', 'bla', 'bla', 3),
-(31, '2015-06-07 22:54:22', '', '', 'komentar', 3),
-(57, '2015-06-07 23:44:00', '', '', '', 3),
-(63, '2015-06-07 23:55:28', '', '', 'proba', 3),
-(64, '2015-06-07 23:55:39', '', '', 'proba', 2),
-(65, '2015-06-07 23:55:47', '', '', '', 3),
-(66, '2015-06-07 23:56:15', '', '', 'proba', 4),
-(67, '2015-06-07 23:56:33', '', '', '', 4),
-(68, '2015-06-07 23:57:22', '', '', '', 4),
-(69, '2015-06-07 23:58:04', '', '', '', 4),
-(70, '2015-06-07 23:59:53', 'evo ovdje ', '', '', 4),
-(71, '2015-06-08 00:10:24', 'imenko', '', '', 3),
-(72, '2015-06-08 00:13:38', 'elmita', '', 'bez tebe', 4),
-(73, '2015-06-08 00:14:00', 'elmita', 'beztebe@ludooo.ba', 'djubre volim te', 4),
-(74, '2015-06-08 00:14:31', 'idu ptice selie', 'elma@etf.ba', 'seko duso', 4),
-(75, '2015-06-08 00:14:54', 'odlazim', 'ekusundzij1@etf.unsa.ba', 'volim te jos', 3),
-(76, '2015-06-08 00:15:15', 'mislim na nas', 'elma_1.1@hotmail.com', 'volim te jos', 2),
-(77, '2015-06-08 00:25:44', '', '', '', 2),
-(78, '2015-06-08 00:26:27', '', '', '', 2),
-(79, '2015-06-08 00:26:37', 'bla', '', '', 2),
-(80, '2015-06-08 00:28:03', 'pile', '', '', 2),
-(81, '2015-06-08 00:28:10', '', '', '', 2),
-(82, '2015-06-08 00:29:16', 'juhuuuu', '', '', 2),
-(83, '2015-06-08 00:31:02', 'imenko', 'blaa', 'komentar', 2),
-(84, '2015-06-08 00:31:53', 'ime', 'email@etf', 'evo vise', 3),
-(85, '2015-06-08 01:48:47', '', '', 'komentarcic', 2),
-(86, '2015-06-08 13:18:56', '', '', 'komarci su grozni', 2),
-(87, '2015-06-08 13:19:40', '', '', 'komnetari svuda oko nas', 3),
-(88, '2015-06-08 13:33:29', '', '', 'fantazija', 4),
-(89, '2015-06-08 13:36:06', '', '', 'fantazija', 4),
-(90, '2015-06-08 13:36:22', '', '', 'bla', 3),
-(91, '2015-06-08 13:36:25', '', '', 'konj', 3),
-(92, '2015-06-08 13:50:21', 'konj', '', 'probam', 2),
-(93, '2015-06-08 13:50:37', 'konj', '', 'opetprobam', 4),
-(94, '2015-06-08 13:52:22', 'ja', '', 'probam komentar', 2),
-(95, '2015-06-08 13:53:17', 'esmeralda', '', 'da li ce proraditi', 2),
-(96, '2015-06-08 13:53:44', 'esmeralda', '', 'da li ce proraditi2', 2),
-(97, '2015-06-08 13:57:48', 'esperansa', '', 'neki glup komentar samo da probam', 3),
-(98, '2015-06-08 14:06:12', 'elma', '', 'komntar1', 4),
-(99, '2015-06-08 14:06:43', 'elma2', '', 'odgovor na komentar 1', 4),
-(100, '2015-06-08 14:07:15', 'elma', '', 'da li ces sada proci', 4),
-(101, '2015-06-08 14:07:36', 'elma', '', 'da li ces sada proci1', 4),
-(103, '2015-06-08 14:12:37', 'anonimus', '', 'helooou', 2),
-(104, '2015-06-08 14:12:52', '', '', 'bic pliz', 2),
-(105, '2015-06-08 21:27:01', 'anoniman', '', 'neki komentar', 2),
-(106, '2015-06-08 21:27:59', 'korisnik', 'ekusundzij1@etf.unsa.ba', 'da li ce da prodje', 2),
-(107, '2015-06-08 21:30:03', 'admin', 'ekusundzij1@etf.unsa.ba', 'adminski komentar', 2),
-(108, '2015-06-08 21:30:13', 'admin', 'ekusundzij1@etf.unsa.ba', 'pravi', 2),
-(109, '2015-06-08 23:07:18', 'admin', 'ekusundzij1@etf.unsa.ba', 'adminski', 3);
+(115, '2015-06-17 17:39:19', 'dalila', 'dalila@hotmail.com', 'jako bi nam znacilo', 14),
+(116, '2015-06-17 17:40:04', 'WE', 'WE@hotmail.com', 'sretni smo da mozemo pomoci', 14),
+(117, '2015-06-17 17:40:45', 'etf', 'etf@etf.unsa.ba', 'javi nam se na mail \netf@etf.unsa.ba', 16),
+(118, '2015-06-17 17:41:18', 'elvis', '', 'Znam djevojku, divna je :)', 16);
 
 -- --------------------------------------------------------
 
@@ -161,19 +104,23 @@ CREATE TABLE IF NOT EXISTS `novosti` (
   `Autor` text COLLATE utf32_slovenian_ci NOT NULL,
   `Slika` text COLLATE utf32_slovenian_ci NOT NULL,
   `Datum` datetime NOT NULL,
+  `kategorija` text COLLATE utf32_slovenian_ci NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf32 COLLATE=utf32_slovenian_ci AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf32 COLLATE=utf32_slovenian_ci AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `novosti`
 --
 
-INSERT INTO `novosti` (`Id`, `Naslov`, `Tekst`, `DetaljnijiTekst`, `Autor`, `Slika`, `Datum`) VALUES
-(2, 'naslov', 'detaljniji tekst', 'naslov', 'autor', 'http://cdn.slike.hr/wp-content/uploads/sites/10/store/mali-zec-slika.jpg', '2015-05-12 00:00:00'),
-(3, 'Naslov3', 'DuziTekst&lt;br /&gt;Dva&lt;br /&gt;Tri&lt;br /&gt;Cetiri', 'Naslov3', 'Elma', 'http://www2.shrani.si/files/slika006510177.jpg', '2015-05-08 00:00:00'),
-(4, 'PROBNA NOVOST', 'NEKI TEKST NOVOSTI', 'NEKI DETALJNIJI TEKST NOVOSTI', 'Elma Kusundzija', '', '2015-06-08 01:48:16'),
-(6, 'SDbvh', 'ojwfni', 'wjfnč', 'owjfn bu', '', '2015-06-03 00:00:00'),
-(7, 'D VWČH', 'LLWdq vjhi', 'wojdb vuif', 'sjfbviu', '', '2015-06-29 00:00:00');
+INSERT INTO `novosti` (`Id`, `Naslov`, `Tekst`, `DetaljnijiTekst`, `Autor`, `Slika`, `Datum`, `kategorija`) VALUES
+(14, 'European Championships in Karate', 'Olmpik Club raises funds for travel to the European Championships in Karate.', 'Olmpik Club raises funds for travel to the European Championships in Karate.\r\nOlmpik Club raises funds for travel to the European Championships in Karate.\r\nOlmpik Club raises funds for travel to the European Championships in Karate.', 'Elma Kusundzija', 'http://web.ics.purdue.edu/~karate/karate/images/stories/demo/karate/karatelogo.jpg', '2015-06-01 00:00:00', 'education_competition'),
+(16, 'Adna need our help', 'Due to the difficult financial situation in the family Milic, Adna need help to continue education.', 'Due to the difficult financial situation in the family Milic, Adna need help to continue education.\r\nDue to the difficult financial situation in the family Milic, Adna need help to continue education.\r\nDue to the difficult financial situation in the family Milic, Adna need help to continue education.', 'Nedim Kusundžija', 'http://images.townnews.com/cnweekly.com/content/articles/2011/04/09/news/doc4d9b7afa3ab029549639641.jpg', '2015-06-06 00:00:00', 'education_scholarship'),
+(17, 'Cappadocia Balloon Tour for Azra', 'Azra''s wish in life is to fly a balloon. Lets enable her a Cappadocia Balloon Tour!', 'Azra''s wish in life is to fly a balloon. Lets enable her a Cappadocia Balloon Tour!\r\nAzra''s wish in life is to fly a balloon. Lets enable her a Cappadocia Balloon Tour!\r\nAzra''s wish in life is to fly a balloon. Lets enable her a Cappadocia Balloon Tour!', 'Fatima Kušundžija', 'http://media-cdn.tripadvisor.com/media/photo-s/04/ba/f3/da/goreme.jpg', '2015-05-19 00:00:00', 'wishes_travel'),
+(19, 'European Championships in Karate (senior)', 'Olmpik Club raises funds for travel to the European Championships in Karate.', 'Olmpik Club raises funds for travel to the European Championships in Karate.\r\nOlmpik Club raises funds for travel to the European Championships in Karate.\r\nOlmpik Club raises funds for travel to the European Championships in Karate.', 'Elma Kusundžija', 'http://web.ics.purdue.edu/~karate/karate/images/stories/demo/karate/karatelogo.jpg', '2014-07-09 00:00:00', 'sport_competitions'),
+(20, 'European Chess Tournament', 'Olmpik Club raises funds for travel to the European Chess Tournament.', 'Olmpik Club raises funds for travel to the European Chess Tournament.\r\nOlmpik Club raises funds for travel to the European Chess Tournament.\r\nOlmpik Club raises funds for travel to the European Chess Tournament.', 'Elma Kusundžija', 'http://img2.wikia.nocookie.net/__cb20100630175158/yugioh/images/d/d9/Opening_chess_position_from_black_side.jpg', '2015-01-06 00:00:00', 'sport_tournaments'),
+(21, 'Nenad need help', 'Nenad was in March this year revealed acute lymphocytic leukemia, and needs as soon as possible on the operation in Turkey.', 'Nenad was in March this year revealed acute lymphocytic leukemia, and needs as soon as possible on the operation in Turkey.\r\nNenad was in March this year revealed acute lymphocytic leukemia, and needs as soon as possible on the operation in Turkey.', 'Adis Hamzic', 'http://www.publicdomainpictures.net/pictures/30000/nahled/little-boy.jpg', '2015-06-02 00:00:00', 'medical_surgery'),
+(22, 'Halid need help', 'In March this year Halid was diagnosed to have diabetes, and needs as soon as possible money for medicines.', 'In March this year Halid was diagnosed to have diabetes, and needs as soon as possible money for medicines.\r\nIn March this year Halid was diagnosed to have diabetes, and needs as soon as possible money for medicines.\r\n', 'Adis Hamzic', 'https://s-media-cache-ak0.pinimg.com/236x/37/98/d9/3798d9cda1eb64339fdae48428e43593.jpg', '2015-06-02 00:00:00', 'medical_treatment'),
+(23, 'Paris ''Home for Orphans''', 'These children really need your help. ', '''Home for Orphans'' Moskva is institution for abandoned children. These children really need your help.\r\nThese children really need your help. ', 'Ilvana Branković', 'http://realonlinesurveys.com/wp-content/uploads/2015/02/small-kids-483594.jpg', '2015-04-13 00:00:00', 'charity');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -17,10 +17,10 @@
    	$dodavanje->bindParam(":email",$email);
    
    if($dodavanje->execute()){	
-   echo "Uspješno ste dodali admina!";}
+   echo "You have successfully added a news!";}
    else
    {
-   		echo "Administarorski username mora biti jedinstven!";
+   		echo "Administrator's username must be unique!";
    }
 
 

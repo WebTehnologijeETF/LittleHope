@@ -19,11 +19,9 @@
         									'.$Autor.' ,&nbsp;&nbsp;
         									 <a href="mailto:'.$komentar['Email'].'">'.$komentar['Email'].'</a> <div>
         									------komentar------<br><div class="Autor">'.$komentar['Tekst'].'</div></li>
-        									<a onClick="ObrisiKomentar('.$komentar['Id'].')">Obrisi</a>';
+        									<a onClick="ObrisiKomentar('.$komentar['Id'].')">Delete</a>';
 
         }
-         echo '<div id="Novosti">';
 	     echo $prikazNovosti;
-	     echo '</div>';
 
 ?>

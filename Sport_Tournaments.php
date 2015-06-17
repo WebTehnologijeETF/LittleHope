@@ -1,17 +1,22 @@
-<?php
-function zag() {
-    header("{$_SERVER['SERVER_PROTOCOL']} 200 OK");
-    header('Content-Type: text/html');
-    header('Access-Control-Allow-Origin: *');
-}
-function rest_get($request, $data) { 
-    
-            //print '<h1>New</h1>';
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+	<meta charset="utf-8" />
+	<TITLE>LittleHope</TITLE>
+	<script src="lstablo.js"></script>
+	<script src="LittleHope.js"></script>
+	<link rel="stylesheet" type="text/css" href="LittleHope_stil.css">
+</HEAD>
+		<div id="Naslov"><p>SPORT - TOURNAMENTS</p></div>
+		<div id="Novosti">
+			
+			
+			<?php
 
-            $prikaz_novosti='';
+			$prikaz_novosti='';
             $veza = new PDO("mysql:dbname=wt_baza;host=localhost;charset=utf8", "Elma", "root");
             $veza->exec("set names utf8");
-            $rezultat = $veza->query("select id, Naslov, Tekst, Autor,DetaljnijiTekst,Slika, Datum from novosti order by Datum desc");
+            $rezultat = $veza->query("select id, Naslov, Tekst, Autor,DetaljnijiTekst,Slika, Datum from novosti where kategorija='sport_tournaments'");
             if (!$rezultat) {
             }
             foreach ($rezultat as $vijest) {
@@ -43,7 +48,6 @@ function rest_get($request, $data) {
             $brojKomentara=$brojKomentara+1;
 
             }
-            //include 'OstaviKomentarForm.php';
             $prikaz_novosti=$prikaz_novosti.'
             <li class="novosti_lista">
             <a class="a_novosti" >'
@@ -53,30 +57,7 @@ function rest_get($request, $data) {
             <div class="Autor"><br>'.$vijest['Autor'].','.$vijest['Datum'].'</div>'.$DetaljnijiOpis1.' <div> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="Opsirnije1"  onClick="ProcitajKomentare1('."'$id'".')"> '."$brojKomentara".' comments </a><div></li><li><div id="zaFormu'.$id.'"></div><div id="nekiId'.$id.'"></div><div id="refresh'.$id.'"></div></li>';
             }
             print '<ul>'.$prikaz_novosti.'</ul>';
-            
 
-  
- }
-function rest_post($request, $data) { echo "post";}
-function rest_delete($request) { echo "delete";}
-function rest_put($request, $data) {echo "put"; }
-function rest_error($request) {echo "error"; }
 
-$method  = $_SERVER['REQUEST_METHOD'];
-$request = $_SERVER['REQUEST_URI'];
-
-switch($method) {
-    case 'PUT':
-        parse_str(file_get_contents('php://input'), $put_vars);
-        zag(); $data = $put_vars; rest_put($request, $data); break;
-    case 'POST':
-        zag(); $data = $_POST; rest_post($request, $data); break;
-    case 'GET':
-        zag(); $data = $_GET; rest_get($request, $data); break;
-    case 'DELETE':
-        zag(); rest_delete($request); break;
-    default:
-        header("{$_SERVER['SERVER_PROTOCOL']} 404 Not Found");
-        rest_error($request); break;
-}
 ?>
+		</div>

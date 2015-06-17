@@ -60,7 +60,7 @@
 				<li class="meni_lista"><a class="a_meni" onClick="SuccessStories()">Stuff to buy</a></li>
 			</ul>
 		</div>
-				<?php include 'Contact_form_validation.php'?>
+				<?php include 'Contact_form_validation.php';?>
 
 		<div id="DinamickiDio">
 
@@ -69,6 +69,7 @@
 				?>
 
 		</div>
+		
 
 		<div id="Partneri">
 			<p>PARTNERS</p>

@@ -36,7 +36,7 @@
                
                 
      }
-     if($bool==0)echo "Unesite ispravne podatke!";
+     if($bool==0)echo "Please, enter the correct information!";
      
 
 

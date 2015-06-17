@@ -4,12 +4,3 @@ na hostingu postoje 2 admina
 	pass:admin
 2.username: admina
 	pass:admina
-
-takodje postoje 3 korisnika
-
-1.username: korisnik	
-	pass: korisnik
-2.username: elma	
-	pass:elma
-3.username: nedim		
-	pass:nedim

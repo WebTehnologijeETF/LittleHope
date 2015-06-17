@@ -5,18 +5,15 @@
     <title>NOVOSTI</title>
   </head>
   <body>
-    <h1>Novosti</h1>
+    <h1>News</h1>
     <?php
     $prikaz_novosti='';
-    print '<div> <a id="odjava" onClick="DodajNovost()" > DODAJ NOVOST &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> <br></div>';
+    print '<div> <a id="odjava" onClick="DodajNovost()" > ADD NEWS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> <br></div>';
 	
      $veza = new PDO("mysql:dbname=wt_baza;host=localhost;charset=utf8", "Elma", "root");
      $veza->exec("set names utf8");
      $rezultat = $veza->query("select id, Naslov, Tekst, Autor,DetaljnijiTekst,Slika, Datum from novosti");
      if (!$rezultat) {
-                /*$greska = $veza->errorInfo();
-          print "SQL greška: " . $greska[2];
-          exit();*/
      }
 
 
@@ -46,10 +43,6 @@
       //iscitavanje broja komentara vezanih za novost
        $komentarii = $veza->query('select id from komentari where novost='."'$id'".'');
      if (!$rezultat) {
-                /*$greska = $veza->errorInfo();
-          print "SQL greška: " . $greska[2];
-          exit();*/
-           echo "greskica";
      }
      $brojKomentara=0;
      foreach ($komentarii as $komentar) {
@@ -63,13 +56,12 @@
                 .$Slika. '
                 <br> '.ucfirst( strtolower($vijest['Naslov'])).'<br></a>
                 <div class="Opis"><br>'. $vijest['Tekst'].'</div>
-                <div class="Autor"><br>'.$vijest['Autor'].','.$vijest['Datum'].'</div><br><br><a onClick="UrediNovost('."'$id'".')">Uredi</a> &nbsp;&nbsp;&nbsp;&nbsp;<a onClick="ObrisiNovost('."'$id'".')"> Obrisi </a></li>
+                <div class="Autor"><br>'.$vijest['Autor'].','.$vijest['Datum'].'</div><br><br><a onClick="UrediNovost('."'$id'".')">Manage</a> &nbsp;&nbsp;&nbsp;&nbsp;<a onClick="ObrisiNovost('."'$id'".')"> Delete </a></li>
                 ';
      }
 
-     echo '<div id="Novosti">';
+     
      echo $prikaz_novosti;
-     echo '</div>';
     ?>
   </body>
 </html>

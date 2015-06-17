@@ -6,6 +6,22 @@ body{
 	width: 100%;
 	margin: auto;
 }
+#proizvodi{
+	border-style: hidden;
+	float: right;
+	width: 650pt;
+	height: 400pt;
+	overflow-y:scroll;
+}
+a{ cursor: pointer;  }
+#DinamickiZaAdmina{
+	border-style: hidden;
+	float: right;
+	width: 800pt;
+	height: 500pt;
+	overflow-y:scroll;
+}
+
 .contact_us{
 	border-style: hidden;
 	border-left: solid;
@@ -517,6 +533,11 @@ td,th{
 #formica{
 	border-style: hidden;
 	padding: 2cm;
+	float: right;
+	width: 700pt;
+	height: 500pt;
+	overflow-y:scroll;
+
 }
 #formica h1{
 	padding: 0.4cm;

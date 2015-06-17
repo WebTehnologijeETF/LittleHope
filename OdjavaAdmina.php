@@ -1,7 +1,7 @@
 <?php
 session_start();
 session_unset();
-echo "Uspješno ste odjavljeni!";
+echo "You've been logged out successfully!";
 
 
 
